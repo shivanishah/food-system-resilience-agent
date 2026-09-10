@@ -1,0 +1,56 @@
+domain,unit,element,n_rows
+QCL,t,Production,148146
+QCL,ha,Area harvested,145906
+QCL,kg/ha,Yield,138137
+TM,1000 USD,Import value,1604261
+TM,t,Import quantity,1604260
+TM,1000 USD,Export value,1457547
+TM,t,Export quantity,1457546
+FBS,1000 t,Domestic supply quantity,237186
+FBS,1000 t,Import quantity,228654
+FBS,g/cap/d,Fat supply quantity (g/capita/day),224096
+FBS,g/cap/d,Protein supply quantity (g/capita/day),224092
+FBS,kcal/cap/d,Food supply (kcal/capita/day),224092
+FBS,1000 t,Food,222579
+FBS,kg/cap,Food supply quantity (kg/capita/yr),222579
+FBS,1000 t,Stock Variation,199585
+FBS,1000 t,Export quantity,187770
+FBS,1000 t,Production,159905
+FBS,1000 t,Losses,106469
+FBS,1000 t,Feed,84850
+FBS,1000 t,Processing,57672
+FBS,1000 t,Seed,45234
+FS,%,Value,13143
+FS,million No,Value,6586
+FS,kcal/cap/d,Value,4408
+FS,%,Confidence interval: Upper bound,4394
+FS,g/cap/d,Value,4290
+FS,%,Confidence interval: Lower bound,4273
+FS,million No,Confidence interval: Upper bound,4115
+FS,million No,Confidence interval: Lower bound,3994
+CAHD,Int$ (PPP) per person per day,Value,2262
+CAHD,%,Value,1720
+CAHD,million No,Value,1720
+RFM,t,Import quantity,541317
+RFM,t,Export quantity,540705
+RFM,1000 USD,Export value,319959
+RFM,1000 USD,Import value,319193
+CP,,Value,26620
+CP,%,Value,26608
+GT,kt,Emissions (CO2eq) (AR5),110254
+GT,kt,Emissions (N2O),90020
+GT,kt,Emissions (CO2eq) from N2O (AR5),89339
+GT,kt,Emissions (CH4),77411
+GT,kt,Emissions (CO2eq) from CH4 (AR5),76759
+GT,kt,Emissions (CO2),61188
+GT,kt,Direct emissions (N2O),32691
+GT,kt,Indirect emissions (N2O),28608
+GT,kt,Emissions (CO2eq) from F-gases (AR5),16641
+RL,1000 ha,Area,61536
+RL,%,Share in Agricultural land,14084
+RL,%,Share in Land area,11411
+RL,%,Share in Forest land,5247
+RL,million t,Carbon stock in living biomass,2904
+RL,ha/cap,Area per capita,2827
+RL,USD_PPP/ha,Value of agricultural production (Int. $) per Area,2550
+RL,%,Share in Cropland,2517

@@ -1,0 +1,2 @@
+domain,from_unit,to_unit,factor,elements,n_rows
+FBS,1000 t,t,1000.0,"Production, Import quantity, Export quantity, Stock Variation, Domestic supply quantity, Feed, Seed, Losses, Processing, Food",1529904

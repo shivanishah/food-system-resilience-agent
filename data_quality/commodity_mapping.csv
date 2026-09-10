@@ -1,0 +1,575 @@
+id,domain_code,item_code,item,canonical_commodity,mapping_status
+1,QCL,101,Canary seed,,unmapped
+2,QCL,103,Mixed grain,,unmapped
+3,QCL,108,Cereals n.e.c.,,unmapped
+4,QCL,116,Potatoes,Potatoes,manual
+5,QCL,122,Sweet potatoes,Sweet potatoes,manual
+6,QCL,125,"Cassava, fresh",Cassava,manual
+7,QCL,135,Yautia,,unmapped
+8,QCL,136,Taro,,unmapped
+9,QCL,137,Yams,,unmapped
+10,QCL,149,"Edible roots and tubers with high starch or inulin content, n.e.c., fresh",,unmapped
+11,QCL,15,Wheat,Wheat,manual
+12,QCL,156,Sugar cane,Sugar cane,manual
+13,QCL,157,Sugar beet,Sugar beet,manual
+14,QCL,161,Other sugar crops n.e.c.,,unmapped
+15,QCL,176,"Beans, dry",,unmapped
+16,QCL,181,"Broad beans and horse beans, dry",,unmapped
+17,QCL,187,"Peas, dry",,unmapped
+18,QCL,191,"Chick peas, dry",,unmapped
+19,QCL,195,"Cow peas, dry",,unmapped
+20,QCL,197,"Pigeon peas, dry",,unmapped
+21,QCL,201,"Lentils, dry",,unmapped
+22,QCL,203,"Bambara beans, dry",,unmapped
+23,QCL,205,Vetches,,unmapped
+24,QCL,210,Lupins,,unmapped
+25,QCL,211,Other pulses n.e.c.,,unmapped
+26,QCL,216,"Brazil nuts, in shell",,unmapped
+27,QCL,217,"Cashew nuts, in shell",,unmapped
+28,QCL,220,"Chestnuts, in shell",,unmapped
+29,QCL,221,"Almonds, in shell",,unmapped
+30,QCL,222,"Walnuts, in shell",,unmapped
+31,QCL,223,"Pistachios, in shell",,unmapped
+32,QCL,224,Kola nuts,,unmapped
+33,QCL,225,"Hazelnuts, in shell",,unmapped
+34,QCL,226,Areca nuts,,unmapped
+35,QCL,234,"Other nuts (excluding wild edible nuts and groundnuts), in shell, n.e.c.",,unmapped
+36,QCL,236,Soya beans,Soybeans,manual
+37,QCL,242,"Groundnuts, excluding shelled",Groundnuts,manual
+38,QCL,249,"Coconuts, in shell",,unmapped
+39,QCL,254,Oil palm fruit,,unmapped
+40,QCL,260,Olives,,unmapped
+41,QCL,263,Karite nuts (sheanuts),,unmapped
+42,QCL,265,Castor oil seeds,,unmapped
+43,QCL,267,Sunflower seed,Sunflower seed,manual
+44,QCL,27,Rice,Rice,manual
+45,QCL,270,Rape or colza seed,Rapeseed,manual
+46,QCL,275,Tung nuts,,unmapped
+47,QCL,277,Jojoba seeds,,unmapped
+48,QCL,280,Safflower seed,,unmapped
+49,QCL,289,Sesame seed,,unmapped
+50,QCL,292,Mustard seed,,unmapped
+51,QCL,296,Poppy seed,,unmapped
+52,QCL,299,Melonseed,,unmapped
+53,QCL,305,Tallowtree seeds,,unmapped
+54,QCL,310,Kapok fruit,,unmapped
+55,QCL,328,"Seed cotton, unginned",,unmapped
+56,QCL,333,Linseed,,unmapped
+57,QCL,336,Hempseed,,unmapped
+58,QCL,339,"Other oil seeds, n.e.c.",,unmapped
+59,QCL,358,Cabbages,,unmapped
+60,QCL,366,Artichokes,,unmapped
+61,QCL,367,Asparagus,,unmapped
+62,QCL,372,Lettuce and chicory,,unmapped
+63,QCL,373,Spinach,,unmapped
+64,QCL,378,Cassava leaves,,unmapped
+65,QCL,388,Tomatoes,,unmapped
+66,QCL,393,Cauliflowers and broccoli,,unmapped
+67,QCL,394,"Pumpkins, squash and gourds",,unmapped
+68,QCL,397,Cucumbers and gherkins,,unmapped
+69,QCL,399,Eggplants (aubergines),,unmapped
+70,QCL,401,"Chillies and peppers, green (Capsicum spp. and Pimenta spp.)",,unmapped
+71,QCL,402,"Onions and shallots, green",,unmapped
+72,QCL,403,"Onions and shallots, dry (excluding dehydrated)",,unmapped
+73,QCL,406,Green garlic,,unmapped
+74,QCL,407,Leeks and other alliaceous vegetables,,unmapped
+75,QCL,414,"Other beans, green",,unmapped
+76,QCL,417,"Peas, green",,unmapped
+77,QCL,420,"Broad beans and horse beans, green",,unmapped
+78,QCL,423,String beans,,unmapped
+79,QCL,426,Carrots and turnips,,unmapped
+80,QCL,430,Okra,,unmapped
+81,QCL,44,Barley,Barley,manual
+82,QCL,446,Green corn (maize),,unmapped
+83,QCL,449,Mushrooms and truffles,,unmapped
+84,QCL,459,Chicory roots,,unmapped
+85,QCL,461,Locust beans (carobs),,unmapped
+86,QCL,463,"Other vegetables, fresh n.e.c.",,unmapped
+87,QCL,486,Bananas,,unmapped
+88,QCL,489,Plantains and cooking bananas,,unmapped
+89,QCL,490,Oranges,,unmapped
+90,QCL,495,"Tangerines, mandarins, clementines",,unmapped
+91,QCL,497,Lemons and limes,,unmapped
+92,QCL,507,Pomelos and grapefruits,,unmapped
+93,QCL,512,"Other citrus fruit, n.e.c.",,unmapped
+94,QCL,515,Apples,,unmapped
+95,QCL,521,Pears,,unmapped
+96,QCL,523,Quinces,,unmapped
+97,QCL,526,Apricots,,unmapped
+98,QCL,530,Sour cherries,,unmapped
+99,QCL,531,Cherries,,unmapped
+100,QCL,534,Peaches and nectarines,,unmapped
+101,QCL,536,Plums and sloes,,unmapped
+102,QCL,541,Other stone fruits,,unmapped
+103,QCL,542,Other pome fruits,,unmapped
+104,QCL,544,Strawberries,,unmapped
+105,QCL,547,Raspberries,,unmapped
+106,QCL,549,Gooseberries,,unmapped
+107,QCL,550,Currants,,unmapped
+108,QCL,552,Blueberries,,unmapped
+109,QCL,554,Cranberries,,unmapped
+110,QCL,558,Other berries and fruits of the genus vaccinium n.e.c.,,unmapped
+111,QCL,56,Maize (corn),Maize,manual
+112,QCL,560,Grapes,,unmapped
+113,QCL,567,Watermelons,,unmapped
+114,QCL,568,Cantaloupes and other melons,,unmapped
+115,QCL,569,Figs,,unmapped
+116,QCL,571,"Mangoes, guavas and mangosteens",,unmapped
+117,QCL,572,Avocados,,unmapped
+118,QCL,574,Pineapples,,unmapped
+119,QCL,577,Dates,,unmapped
+120,QCL,587,Persimmons,,unmapped
+121,QCL,591,Cashewapple,,unmapped
+122,QCL,592,Kiwi fruit,,unmapped
+123,QCL,600,Papayas,,unmapped
+124,QCL,603,"Other tropical fruits, n.e.c.",,unmapped
+125,QCL,619,"Other fruits, n.e.c.",,unmapped
+126,QCL,656,"Coffee, green",,unmapped
+127,QCL,661,Cocoa beans,,unmapped
+128,QCL,667,Tea leaves,,unmapped
+129,QCL,671,Maté leaves,,unmapped
+130,QCL,677,Hop cones,,unmapped
+131,QCL,687,"Pepper (Piper spp.), raw",,unmapped
+132,QCL,689,"Chillies and peppers, dry (Capsicum spp., Pimenta spp.), raw",,unmapped
+133,QCL,692,"Vanilla, raw",,unmapped
+134,QCL,693,"Cinnamon and cinnamon-tree flowers, raw",,unmapped
+135,QCL,698,"Cloves (whole stems), raw",,unmapped
+136,QCL,702,"Nutmeg, mace, cardamoms, raw",,unmapped
+137,QCL,71,Rye,,unmapped
+138,QCL,711,"Anise, badian, coriander, cumin, caraway, fennel and juniper berries, raw",,unmapped
+139,QCL,720,"Ginger, raw",,unmapped
+140,QCL,723,"Other stimulant, spice and aromatic crops, n.e.c.",,unmapped
+141,QCL,748,"Peppermint, spearmint",,unmapped
+142,QCL,75,Oats,,unmapped
+143,QCL,754,"Pyrethrum, dried flowers",,unmapped
+144,QCL,771,"Flax, raw or retted",,unmapped
+145,QCL,777,"True hemp, raw or retted",,unmapped
+146,QCL,780,"Jute, raw or retted",,unmapped
+147,QCL,782,"Kenaf, and other textile bast fibres, raw or retted",,unmapped
+148,QCL,788,"Ramie, raw or retted",,unmapped
+149,QCL,789,"Sisal, raw",,unmapped
+150,QCL,79,Millet,,unmapped
+151,QCL,800,"Agave fibres, raw, n.e.c.",,unmapped
+152,QCL,809,"Abaca, manila hemp, raw",,unmapped
+153,QCL,813,"Coir, raw",,unmapped
+154,QCL,821,"Other fibre crops, raw, n.e.c.",,unmapped
+155,QCL,826,Unmanufactured tobacco,,unmapped
+156,QCL,83,Sorghum,Sorghum,manual
+157,QCL,836,Natural rubber in primary forms,,unmapped
+158,QCL,89,Buckwheat,,unmapped
+159,QCL,92,Quinoa,,unmapped
+160,QCL,94,Fonio,,unmapped
+161,QCL,97,Triticale,,unmapped
+162,TM,101,Canary seed,,unmapped
+163,TM,103,Mixed grain,,unmapped
+164,TM,108,Cereals n.e.c.,,unmapped
+165,TM,116,Potatoes,Potatoes,manual
+166,TM,122,Sweet potatoes,Sweet potatoes,manual
+167,TM,125,"Cassava, fresh",Cassava,manual
+168,TM,135,Yautia,,unmapped
+169,TM,136,Taro,,unmapped
+170,TM,137,Yams,,unmapped
+171,TM,149,"Edible roots and tubers with high starch or inulin content, n.e.c., fresh",,unmapped
+172,TM,15,Wheat,Wheat,manual
+173,TM,156,Sugar cane,Sugar cane,manual
+174,TM,157,Sugar beet,Sugar beet,manual
+175,TM,161,Other sugar crops n.e.c.,,unmapped
+176,TM,176,"Beans, dry",,unmapped
+177,TM,181,"Broad beans and horse beans, dry",,unmapped
+178,TM,187,"Peas, dry",,unmapped
+179,TM,191,"Chick peas, dry",,unmapped
+180,TM,195,"Cow peas, dry",,unmapped
+181,TM,197,"Pigeon peas, dry",,unmapped
+182,TM,201,"Lentils, dry",,unmapped
+183,TM,203,"Bambara beans, dry",,unmapped
+184,TM,205,Vetches,,unmapped
+185,TM,210,Lupins,,unmapped
+186,TM,211,Other pulses n.e.c.,,unmapped
+187,TM,216,"Brazil nuts, in shell",,unmapped
+188,TM,217,"Cashew nuts, in shell",,unmapped
+189,TM,220,"Chestnuts, in shell",,unmapped
+190,TM,221,"Almonds, in shell",,unmapped
+191,TM,222,"Walnuts, in shell",,unmapped
+192,TM,223,"Pistachios, in shell",,unmapped
+193,TM,224,Kola nuts,,unmapped
+194,TM,225,"Hazelnuts, in shell",,unmapped
+195,TM,226,Areca nuts,,unmapped
+196,TM,234,"Other nuts (excluding wild edible nuts and groundnuts), in shell, n.e.c.",,unmapped
+197,TM,236,Soya beans,Soybeans,manual
+198,TM,242,"Groundnuts, excluding shelled",Groundnuts,manual
+199,TM,249,"Coconuts, in shell",,unmapped
+200,TM,260,Olives,,unmapped
+201,TM,263,Karite nuts (sheanuts),,unmapped
+202,TM,265,Castor oil seeds,,unmapped
+203,TM,267,Sunflower seed,Sunflower seed,manual
+204,TM,27,Rice,Rice,manual
+205,TM,270,Rape or colza seed,Rapeseed,manual
+206,TM,275,Tung nuts,,unmapped
+207,TM,280,Safflower seed,,unmapped
+208,TM,289,Sesame seed,,unmapped
+209,TM,292,Mustard seed,,unmapped
+210,TM,296,Poppy seed,,unmapped
+211,TM,299,Melonseed,,unmapped
+212,TM,333,Linseed,,unmapped
+213,TM,336,Hempseed,,unmapped
+214,TM,339,"Other oil seeds, n.e.c.",,unmapped
+215,TM,358,Cabbages,,unmapped
+216,TM,366,Artichokes,,unmapped
+217,TM,367,Asparagus,,unmapped
+218,TM,372,Lettuce and chicory,,unmapped
+219,TM,373,Spinach,,unmapped
+220,TM,388,Tomatoes,,unmapped
+221,TM,393,Cauliflowers and broccoli,,unmapped
+222,TM,394,"Pumpkins, squash and gourds",,unmapped
+223,TM,397,Cucumbers and gherkins,,unmapped
+224,TM,399,Eggplants (aubergines),,unmapped
+225,TM,401,"Chillies and peppers, green (Capsicum spp. and Pimenta spp.)",,unmapped
+226,TM,402,"Onions and shallots, green",,unmapped
+227,TM,403,"Onions and shallots, dry (excluding dehydrated)",,unmapped
+228,TM,406,Green garlic,,unmapped
+229,TM,407,Leeks and other alliaceous vegetables,,unmapped
+230,TM,414,"Other beans, green",,unmapped
+231,TM,417,"Peas, green",,unmapped
+232,TM,420,"Broad beans and horse beans, green",,unmapped
+233,TM,423,String beans,,unmapped
+234,TM,426,Carrots and turnips,,unmapped
+235,TM,430,Okra,,unmapped
+236,TM,44,Barley,Barley,manual
+237,TM,446,Green corn (maize),,unmapped
+238,TM,449,Mushrooms and truffles,,unmapped
+239,TM,459,Chicory roots,,unmapped
+240,TM,461,Locust beans (carobs),,unmapped
+241,TM,463,"Other vegetables, fresh n.e.c.",,unmapped
+242,TM,486,Bananas,,unmapped
+243,TM,489,Plantains and cooking bananas,,unmapped
+244,TM,490,Oranges,,unmapped
+245,TM,495,"Tangerines, mandarins, clementines",,unmapped
+246,TM,497,Lemons and limes,,unmapped
+247,TM,507,Pomelos and grapefruits,,unmapped
+248,TM,512,"Other citrus fruit, n.e.c.",,unmapped
+249,TM,515,Apples,,unmapped
+250,TM,521,Pears,,unmapped
+251,TM,523,Quinces,,unmapped
+252,TM,526,Apricots,,unmapped
+253,TM,530,Sour cherries,,unmapped
+254,TM,531,Cherries,,unmapped
+255,TM,534,Peaches and nectarines,,unmapped
+256,TM,536,Plums and sloes,,unmapped
+257,TM,541,Other stone fruits,,unmapped
+258,TM,544,Strawberries,,unmapped
+259,TM,547,Raspberries,,unmapped
+260,TM,549,Gooseberries,,unmapped
+261,TM,550,Currants,,unmapped
+262,TM,552,Blueberries,,unmapped
+263,TM,554,Cranberries,,unmapped
+264,TM,558,Other berries and fruits of the genus vaccinium n.e.c.,,unmapped
+265,TM,56,Maize (corn),Maize,manual
+266,TM,560,Grapes,,unmapped
+267,TM,567,Watermelons,,unmapped
+268,TM,568,Cantaloupes and other melons,,unmapped
+269,TM,569,Figs,,unmapped
+270,TM,571,"Mangoes, guavas and mangosteens",,unmapped
+271,TM,572,Avocados,,unmapped
+272,TM,574,Pineapples,,unmapped
+273,TM,577,Dates,,unmapped
+274,TM,587,Persimmons,,unmapped
+275,TM,591,Cashewapple,,unmapped
+276,TM,592,Kiwi fruit,,unmapped
+277,TM,600,Papayas,,unmapped
+278,TM,603,"Other tropical fruits, n.e.c.",,unmapped
+279,TM,619,"Other fruits, n.e.c.",,unmapped
+280,TM,656,"Coffee, green",,unmapped
+281,TM,661,Cocoa beans,,unmapped
+282,TM,667,Tea leaves,,unmapped
+283,TM,671,Maté leaves,,unmapped
+284,TM,677,Hop cones,,unmapped
+285,TM,687,"Pepper (Piper spp.), raw",,unmapped
+286,TM,689,"Chillies and peppers, dry (Capsicum spp., Pimenta spp.), raw",,unmapped
+287,TM,692,"Vanilla, raw",,unmapped
+288,TM,693,"Cinnamon and cinnamon-tree flowers, raw",,unmapped
+289,TM,698,"Cloves (whole stems), raw",,unmapped
+290,TM,702,"Nutmeg, mace, cardamoms, raw",,unmapped
+291,TM,71,Rye,,unmapped
+292,TM,711,"Anise, badian, coriander, cumin, caraway, fennel and juniper berries, raw",,unmapped
+293,TM,720,"Ginger, raw",,unmapped
+294,TM,723,"Other stimulant, spice and aromatic crops, n.e.c.",,unmapped
+295,TM,748,"Peppermint, spearmint",,unmapped
+296,TM,75,Oats,,unmapped
+297,TM,754,"Pyrethrum, dried flowers",,unmapped
+298,TM,771,"Flax, raw or retted",,unmapped
+299,TM,777,"True hemp, raw or retted",,unmapped
+300,TM,780,"Jute, raw or retted",,unmapped
+301,TM,782,"Kenaf, and other textile bast fibres, raw or retted",,unmapped
+302,TM,788,"Ramie, raw or retted",,unmapped
+303,TM,789,"Sisal, raw",,unmapped
+304,TM,79,Millet,,unmapped
+305,TM,809,"Abaca, manila hemp, raw",,unmapped
+306,TM,813,"Coir, raw",,unmapped
+307,TM,821,"Other fibre crops, raw, n.e.c.",,unmapped
+308,TM,826,Unmanufactured tobacco,,unmapped
+309,TM,83,Sorghum,Sorghum,manual
+310,TM,836,Natural rubber in primary forms,,unmapped
+311,TM,839,"Balata, gutta-percha, guayule, chicle and similar natural gums in primary forms or in plates, sheets or strip",,unmapped
+312,TM,89,Buckwheat,,unmapped
+313,TM,92,Quinoa,,unmapped
+314,TM,94,Fonio,,unmapped
+315,TM,97,Triticale,,unmapped
+316,FBS,2511,Wheat and products,,unmapped
+317,FBS,2513,Barley and products,,unmapped
+318,FBS,2514,Maize and products,,unmapped
+319,FBS,2515,Rye and products,,unmapped
+320,FBS,2516,Oats,,unmapped
+321,FBS,2517,Millet and products,,unmapped
+322,FBS,2518,Sorghum and products,,unmapped
+323,FBS,2520,"Cereals, other",,unmapped
+324,FBS,2531,Potatoes and products,,unmapped
+325,FBS,2532,Cassava and products,,unmapped
+326,FBS,2533,Sweet potatoes,,unmapped
+327,FBS,2534,"Roots, Other",,unmapped
+328,FBS,2535,Yams,,unmapped
+329,FBS,2536,Sugar cane,,unmapped
+330,FBS,2537,Sugar beet,,unmapped
+331,FBS,2541,Sugar non-centrifugal,,unmapped
+332,FBS,2542,Sugar (Raw Equivalent),,unmapped
+333,FBS,2543,"Sweeteners, Other",,unmapped
+334,FBS,2546,Beans,,unmapped
+335,FBS,2547,Peas,,unmapped
+336,FBS,2549,"Pulses, Other and products",,unmapped
+337,FBS,2551,Nuts and products,,unmapped
+338,FBS,2552,Groundnuts,,unmapped
+339,FBS,2555,Soyabeans,,unmapped
+340,FBS,2557,Sunflower seed,,unmapped
+341,FBS,2558,Rape and Mustardseed,,unmapped
+342,FBS,2559,Cottonseed,,unmapped
+343,FBS,2560,Coconuts - Incl Copra,,unmapped
+344,FBS,2561,Sesame seed,,unmapped
+345,FBS,2562,Palm kernels,,unmapped
+346,FBS,2563,Olives (including preserved),,unmapped
+347,FBS,2570,"Oilcrops, Other",,unmapped
+348,FBS,2571,Soyabean Oil,,unmapped
+349,FBS,2572,Groundnut Oil,,unmapped
+350,FBS,2573,Sunflowerseed Oil,,unmapped
+351,FBS,2574,Rape and Mustard Oil,,unmapped
+352,FBS,2575,Cottonseed Oil,,unmapped
+353,FBS,2576,Palmkernel Oil,,unmapped
+354,FBS,2577,Palm Oil,,unmapped
+355,FBS,2578,Coconut Oil,,unmapped
+356,FBS,2579,Sesameseed Oil,,unmapped
+357,FBS,2580,Olive Oil,,unmapped
+358,FBS,2581,Ricebran Oil,,unmapped
+359,FBS,2582,Maize Germ Oil,,unmapped
+360,FBS,2586,"Oilcrops Oil, Other",,unmapped
+361,FBS,2601,Tomatoes and products,,unmapped
+362,FBS,2602,Onions,,unmapped
+363,FBS,2605,"Vegetables, other",,unmapped
+364,FBS,2611,"Oranges, Mandarines",,unmapped
+365,FBS,2612,"Lemons, Limes and products",,unmapped
+366,FBS,2613,Grapefruit and products,,unmapped
+367,FBS,2614,"Citrus, Other",,unmapped
+368,FBS,2615,Bananas,,unmapped
+369,FBS,2616,Plantains,,unmapped
+370,FBS,2617,Apples and products,,unmapped
+371,FBS,2618,Pineapples and products,,unmapped
+372,FBS,2619,Dates,,unmapped
+373,FBS,2620,Grapes and products (excl wine),,unmapped
+374,FBS,2625,"Fruits, other",,unmapped
+375,FBS,2630,Coffee and products,,unmapped
+376,FBS,2633,Cocoa Beans and products,,unmapped
+377,FBS,2635,Tea (including mate),,unmapped
+378,FBS,2640,Pepper,,unmapped
+379,FBS,2641,Pimento,,unmapped
+380,FBS,2642,Cloves,,unmapped
+381,FBS,2645,"Spices, Other",,unmapped
+382,FBS,2655,Wine,,unmapped
+383,FBS,2656,Beer,,unmapped
+384,FBS,2657,"Beverages, Fermented",,unmapped
+385,FBS,2658,"Beverages, Alcoholic",,unmapped
+386,FBS,2659,"Alcohol, Non-Food",,unmapped
+387,FBS,2680,Infant food,,unmapped
+388,FBS,2731,Bovine Meat,,unmapped
+389,FBS,2732,Mutton & Goat Meat,,unmapped
+390,FBS,2733,Pigmeat,,unmapped
+391,FBS,2734,Poultry Meat,,unmapped
+392,FBS,2735,"Meat, Other",,unmapped
+393,FBS,2736,"Offals, Edible",,unmapped
+394,FBS,2737,"Fats, Animals, Raw",,unmapped
+395,FBS,2740,"Butter, Ghee",,unmapped
+396,FBS,2743,Cream,,unmapped
+397,FBS,2744,Eggs,,unmapped
+398,FBS,2745,Honey,,unmapped
+399,FBS,2761,Freshwater Fish,,unmapped
+400,FBS,2762,Demersal Fish,,unmapped
+401,FBS,2763,Pelagic Fish,,unmapped
+402,FBS,2764,"Marine Fish, Other",,unmapped
+403,FBS,2765,Crustaceans,,unmapped
+404,FBS,2766,Cephalopods,,unmapped
+405,FBS,2767,"Molluscs, Other",,unmapped
+406,FBS,2768,"Meat, Aquatic Mammals",,unmapped
+407,FBS,2769,"Aquatic Animals, Others",,unmapped
+408,FBS,2775,Aquatic Plants,,unmapped
+409,FBS,2781,"Fish, Body Oil",,unmapped
+410,FBS,2782,"Fish, Liver Oil",,unmapped
+411,FBS,2807,Rice and products,,unmapped
+412,FBS,2848,Milk - Excluding Butter,,unmapped
+413,FBS,2899,Miscellaneous,,unmapped
+414,FBS,2901,Grand Total,,unmapped
+415,FBS,2903,Vegetal Products,,unmapped
+416,FBS,2905,Cereals - Excluding Beer,,unmapped
+417,FBS,2907,Starchy Roots,,unmapped
+418,FBS,2908,Sugar Crops,,unmapped
+419,FBS,2909,Sugar & Sweeteners,,unmapped
+420,FBS,2911,Pulses,,unmapped
+421,FBS,2912,Treenuts,,unmapped
+422,FBS,2913,Oilcrops,,unmapped
+423,FBS,2914,Vegetable Oils,,unmapped
+424,FBS,2918,Vegetables,,unmapped
+425,FBS,2919,Fruits - Excluding Wine,,unmapped
+426,FBS,2922,Stimulants,,unmapped
+427,FBS,2923,Spices,,unmapped
+428,FBS,2924,Alcoholic Beverages,,unmapped
+429,FBS,2928,Miscellaneous,,unmapped
+430,FBS,2941,Animal Products,,unmapped
+431,FBS,2943,Meat,,unmapped
+432,FBS,2945,Offals,,unmapped
+433,FBS,2946,Animal fats,,unmapped
+434,FBS,2948,Milk - Excluding Butter,,unmapped
+435,FBS,2949,Eggs,,unmapped
+436,FBS,2960,"Fish, Seafood",,unmapped
+437,FBS,2961,"Aquatic Products, Other",,unmapped
+438,FS,210011,Number of people undernourished (million) (3-year average),,not_applicable
+439,FS,210041,Prevalence of undernourishment (percent) (3-year average),,not_applicable
+440,FS,210071,Number of severely food insecure people (million) (3-year average),,not_applicable
+441,FS,210081,Number of moderately or severely food insecure people (million) (3-year average),,not_applicable
+442,FS,210091,Prevalence of moderate or severe food insecurity in the total population (percent) (3-year average),,not_applicable
+443,FS,21010,Average dietary energy supply adequacy (percent) (3-year average),,not_applicable
+444,FS,21013,Average protein supply (g/cap/day) (3-year average),,not_applicable
+445,FS,21014,Average supply of protein of animal origin (g/cap/day) (3-year average),,not_applicable
+446,FS,21031,Per capita food supply variability (kcal/cap/day),,not_applicable
+447,FS,21033,Value of food imports in total merchandise exports (percent) (3-year average),,not_applicable
+448,FS,21035,Cereal import dependency ratio (percent) (3-year average),,not_applicable
+449,FS,210401,Prevalence of severe food insecurity in the total population (percent) (3-year average),,not_applicable
+450,FS,22000,Dietary energy supply used in the estimation of the prevalence of undernourishment (kcal/cap/day) (3-year average),,not_applicable
+451,CAHD,70040,Cost of a healthy diet (CoHD),,not_applicable
+452,CAHD,7005,Prevalence of unaffordability (PUA),,not_applicable
+453,CAHD,7006,Number of people unable to afford a healthy diet (NUA),,not_applicable
+454,CAHD,70070,Cost of starchy staples,,not_applicable
+455,CAHD,70080,Cost of animal source foods,,not_applicable
+456,CAHD,70090,"Cost of legumes, nuts and seeds",,not_applicable
+457,CAHD,70100,Cost of vegetables,,not_applicable
+458,CAHD,70110,Cost of fruits,,not_applicable
+459,RFM,3102,Nutrient nitrogen N (total),,unmapped
+460,RFM,3103,Nutrient phosphate P2O5 (total),,unmapped
+461,RFM,3104,Nutrient potash K2O (total),,unmapped
+462,RFM,4001,Urea,,unmapped
+463,RFM,4002,Ammonium sulphate,,unmapped
+464,RFM,4003,Ammonium nitrate (AN),,unmapped
+465,RFM,4004,Calcium ammonium nitrate (CAN) and other mixtures with calcium carbonate,,unmapped
+466,RFM,4005,Sodium nitrate,,unmapped
+467,RFM,4006,Urea and ammonium nitrate solutions (UAN),,unmapped
+468,RFM,4007,"Ammonia, anhydrous",,unmapped
+469,RFM,4008,"Other nitrogenous fertilizers, n.e.c.",,unmapped
+470,RFM,4011,Phosphate rock,,unmapped
+471,RFM,4012,Superphosphates above 35%,,unmapped
+472,RFM,4013,"Superphosphates, other",,unmapped
+473,RFM,4014,"Other phosphatic fertilizers, n.e.c.",,unmapped
+474,RFM,4016,Potassium chloride (muriate of potash) (MOP),,unmapped
+475,RFM,4017,Potassium sulphate (sulphate of potash) (SOP),,unmapped
+476,RFM,4018,"Other potassic fertilizers, n.e.c.",,unmapped
+477,RFM,4021,NPK fertilizers,,unmapped
+478,RFM,4022,Diammonium phosphate (DAP),,unmapped
+479,RFM,4023,Monoammonium phosphate (MAP),,unmapped
+480,RFM,4024,Other NP compounds,,unmapped
+481,RFM,4025,Potassium nitrate,,unmapped
+482,RFM,4027,PK compounds,,unmapped
+483,RFM,4030,Fertilizers n.e.c.,,unmapped
+484,CP,23013,"Consumer Prices, Food Indices (2015 = 100)",,not_applicable
+485,CP,23014,Food price inflation,,not_applicable
+486,GT,1707,LULUCF,,not_applicable
+487,GT,1709,Agricultural Soils,,not_applicable
+488,GT,1711,IPCC Agriculture,,not_applicable
+489,GT,5058,Enteric Fermentation,,not_applicable
+490,GT,5059,Manure Management,,not_applicable
+491,GT,5060,Rice Cultivation,,not_applicable
+492,GT,5061,Synthetic Fertilizers,,not_applicable
+493,GT,5062,Manure applied to Soils,,not_applicable
+494,GT,5063,Manure left on Pasture,,not_applicable
+495,GT,5064,Crop Residues,,not_applicable
+496,GT,5066,Burning - Crop residues,,not_applicable
+497,GT,5084,Emissions from crops,,not_applicable
+498,GT,5085,Emissions from livestock,,not_applicable
+499,GT,6504,Fertilizers Manufacturing,,not_applicable
+500,GT,6505,Food Household Consumption,,not_applicable
+501,GT,6506,Food Packaging,,not_applicable
+502,GT,6507,Food Processing,,not_applicable
+503,GT,6508,Food Retail,,not_applicable
+504,GT,6516,Land-use change,,not_applicable
+505,GT,6517,Pre- and post-production,,not_applicable
+506,GT,6518,Agrifood systems,,not_applicable
+507,GT,6729,Drained organic soils,,not_applicable
+508,GT,67291,Drained organic soils (N2O),,not_applicable
+509,GT,67292,Drained organic soils (CO2),,not_applicable
+510,GT,6750,Net Forest conversion,,not_applicable
+511,GT,6751,Forestland,,not_applicable
+512,GT,6795,Savanna fires,,not_applicable
+513,GT,6815,Food Transport,,not_applicable
+514,GT,6817,IPPU,,not_applicable
+515,GT,6818,Waste,,not_applicable
+516,GT,6819,Other,,not_applicable
+517,GT,6820,International bunkers,,not_applicable
+518,GT,6821,Energy,,not_applicable
+519,GT,6824,AFOLU,,not_applicable
+520,GT,6825,All sectors with LULUCF,,not_applicable
+521,GT,6829,All sectors without LULUCF,,not_applicable
+522,GT,6991,Agrifood Systems Waste Disposal,,not_applicable
+523,GT,6992,Forest fires,,not_applicable
+524,GT,69921,Fires in humid tropical forests,,not_applicable
+525,GT,6993,Fires in organic soils,,not_applicable
+526,GT,6994,On-farm energy use,,not_applicable
+527,GT,6995,Emissions on agricultural land,,not_applicable
+528,GT,6996,Farm gate,,not_applicable
+529,GT,6997,Pesticides Manufacturing,,not_applicable
+530,RL,6600,Country area,,not_applicable
+531,RL,6601,Land area,,not_applicable
+532,RL,6602,Agriculture,,not_applicable
+533,RL,6610,Agricultural land,,not_applicable
+534,RL,6611,Agriculture area actually irrigated,,not_applicable
+535,RL,6616,Land area actually irrigated,,not_applicable
+536,RL,6620,Cropland,,not_applicable
+537,RL,6621,Arable land,,not_applicable
+538,RL,6630,Temporary crops,,not_applicable
+539,RL,6633,Temporary meadows and pastures,,not_applicable
+540,RL,6640,Temporary fallow,,not_applicable
+541,RL,6641,Coastal waters used for aquac. or holding facilities,,not_applicable
+542,RL,6642,Coastal waters used for capture fisheries,,not_applicable
+543,RL,6643,Exclusive Economic Zone (EEZ),,not_applicable
+544,RL,6644,EEZ used for aquac. or holding facilities,,not_applicable
+545,RL,6645,EEZ used for capture fisheries,,not_applicable
+546,RL,6646,Forest land,,not_applicable
+547,RL,6649,Farm buildings and Farmyards,,not_applicable
+548,RL,6650,Permanent crops,,not_applicable
+549,RL,6655,Permanent meadows and pastures,,not_applicable
+550,RL,6656,Perm. meadows & pastures - Cultivated,,not_applicable
+551,RL,6657,Perm. meadows & pastures area actually irrig.,,not_applicable
+552,RL,6659,Perm. meadows & pastures - Nat. growing,,not_applicable
+553,RL,6664,Cropland area under conventional tillage,,not_applicable
+554,RL,6665,Cropland area under conservation tillage,,not_applicable
+555,RL,6666,Cropland area under zero or no tillage,,not_applicable
+556,RL,6668,Cropland area under organic agric.,,not_applicable
+557,RL,6669,Cropland area certified organic,,not_applicable
+558,RL,6670,Other land,,not_applicable
+559,RL,6671,Agriculture area under organic agric.,,not_applicable
+560,RL,6672,Agriculture area certified organic,,not_applicable
+561,RL,6680,Inland waters,,not_applicable
+562,RL,6681,Perm. meadows & pastures area under organic agric.,,not_applicable
+563,RL,6682,Perm. meadows & pastures area certified organic,,not_applicable
+564,RL,6690,Land area equipped for irrigation,,not_applicable
+565,RL,6694,Cropland area actually irrigated,,not_applicable
+566,RL,6695,Forestry area actually irrigated,,not_applicable
+567,RL,6714,Primary Forest,,not_applicable
+568,RL,6716,Planted Forest,,not_applicable
+569,RL,6717,Naturally regenerating forest,,not_applicable
+570,RL,6762,Land used for aquaculture,,not_applicable
+571,RL,6767,Inland waters used for aquac. or holding facilities,,not_applicable
+572,RL,6771,Inland waters used for capture fisheries,,not_applicable
+573,RL,6773,Coastal waters,,not_applicable
+574,RL,6774,Cropland area under protective cover,,not_applicable
