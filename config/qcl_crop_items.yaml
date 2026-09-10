@@ -1,0 +1,342 @@
+_comment: 'Auto-derived by src/elt/qcl_items.py from FAOSTAT QCL''s own itemgroup
+  classification: item group QC ("Crops, primary") members minus rows that are themselves
+  rollup group codes. Regenerate by re-running that module if FAO revises the classification
+  -- do not hand-edit.'
+source_itemgroup: QC
+excluded_itemgroups:
+- QA
+- QL
+- QP
+- QD
+excluded_itemgroups_meaning:
+  QA: Live Animals
+  QL: Livestock primary
+  QP: Livestock processed
+  QD: Crops processed (not primary production)
+n_items: 162
+items:
+- item_code: '101'
+  item: Canary seed
+- item_code: '103'
+  item: Mixed grain
+- item_code: '108'
+  item: Cereals n.e.c.
+- item_code: '116'
+  item: Potatoes
+- item_code: '122'
+  item: Sweet potatoes
+- item_code: '125'
+  item: Cassava, fresh
+- item_code: '135'
+  item: Yautia
+- item_code: '136'
+  item: Taro
+- item_code: '137'
+  item: Yams
+- item_code: '149'
+  item: Edible roots and tubers with high starch or inulin content, n.e.c., fresh
+- item_code: '15'
+  item: Wheat
+- item_code: '156'
+  item: Sugar cane
+- item_code: '157'
+  item: Sugar beet
+- item_code: '161'
+  item: Other sugar crops n.e.c.
+- item_code: '176'
+  item: Beans, dry
+- item_code: '181'
+  item: Broad beans and horse beans, dry
+- item_code: '187'
+  item: Peas, dry
+- item_code: '191'
+  item: Chick peas, dry
+- item_code: '195'
+  item: Cow peas, dry
+- item_code: '197'
+  item: Pigeon peas, dry
+- item_code: '201'
+  item: Lentils, dry
+- item_code: '203'
+  item: Bambara beans, dry
+- item_code: '205'
+  item: Vetches
+- item_code: '210'
+  item: Lupins
+- item_code: '211'
+  item: Other pulses n.e.c.
+- item_code: '216'
+  item: Brazil nuts, in shell
+- item_code: '217'
+  item: Cashew nuts, in shell
+- item_code: '220'
+  item: Chestnuts, in shell
+- item_code: '221'
+  item: Almonds, in shell
+- item_code: '222'
+  item: Walnuts, in shell
+- item_code: '223'
+  item: Pistachios, in shell
+- item_code: '224'
+  item: Kola nuts
+- item_code: '225'
+  item: Hazelnuts, in shell
+- item_code: '226'
+  item: Areca nuts
+- item_code: '234'
+  item: Other nuts (excluding wild edible nuts and groundnuts), in shell, n.e.c.
+- item_code: '236'
+  item: Soya beans
+- item_code: '242'
+  item: Groundnuts, excluding shelled
+- item_code: '249'
+  item: Coconuts, in shell
+- item_code: '254'
+  item: Oil palm fruit
+- item_code: '260'
+  item: Olives
+- item_code: '263'
+  item: Karite nuts (sheanuts)
+- item_code: '265'
+  item: Castor oil seeds
+- item_code: '267'
+  item: Sunflower seed
+- item_code: '27'
+  item: Rice
+- item_code: '270'
+  item: Rape or colza seed
+- item_code: '275'
+  item: Tung nuts
+- item_code: '277'
+  item: Jojoba seeds
+- item_code: '280'
+  item: Safflower seed
+- item_code: '289'
+  item: Sesame seed
+- item_code: '292'
+  item: Mustard seed
+- item_code: '296'
+  item: Poppy seed
+- item_code: '299'
+  item: Melonseed
+- item_code: '305'
+  item: Tallowtree seeds
+- item_code: '310'
+  item: Kapok fruit
+- item_code: '328'
+  item: Seed cotton, unginned
+- item_code: '333'
+  item: Linseed
+- item_code: '336'
+  item: Hempseed
+- item_code: '339'
+  item: Other oil seeds, n.e.c.
+- item_code: '358'
+  item: Cabbages
+- item_code: '366'
+  item: Artichokes
+- item_code: '367'
+  item: Asparagus
+- item_code: '372'
+  item: Lettuce and chicory
+- item_code: '373'
+  item: Spinach
+- item_code: '378'
+  item: Cassava leaves
+- item_code: '388'
+  item: Tomatoes
+- item_code: '393'
+  item: Cauliflowers and broccoli
+- item_code: '394'
+  item: Pumpkins, squash and gourds
+- item_code: '397'
+  item: Cucumbers and gherkins
+- item_code: '399'
+  item: Eggplants (aubergines)
+- item_code: '401'
+  item: Chillies and peppers, green (Capsicum spp. and Pimenta spp.)
+- item_code: '402'
+  item: Onions and shallots, green
+- item_code: '403'
+  item: Onions and shallots, dry (excluding dehydrated)
+- item_code: '406'
+  item: Green garlic
+- item_code: '407'
+  item: Leeks and other alliaceous vegetables
+- item_code: '414'
+  item: Other beans, green
+- item_code: '417'
+  item: Peas, green
+- item_code: '420'
+  item: Broad beans and horse beans, green
+- item_code: '423'
+  item: String beans
+- item_code: '426'
+  item: Carrots and turnips
+- item_code: '430'
+  item: Okra
+- item_code: '44'
+  item: Barley
+- item_code: '446'
+  item: Green corn (maize)
+- item_code: '449'
+  item: Mushrooms and truffles
+- item_code: '459'
+  item: Chicory roots
+- item_code: '461'
+  item: Locust beans (carobs)
+- item_code: '463'
+  item: Other vegetables, fresh n.e.c.
+- item_code: '486'
+  item: Bananas
+- item_code: '489'
+  item: Plantains and cooking bananas
+- item_code: '490'
+  item: Oranges
+- item_code: '495'
+  item: Tangerines, mandarins, clementines
+- item_code: '497'
+  item: Lemons and limes
+- item_code: '507'
+  item: Pomelos and grapefruits
+- item_code: '512'
+  item: Other citrus fruit, n.e.c.
+- item_code: '515'
+  item: Apples
+- item_code: '521'
+  item: Pears
+- item_code: '523'
+  item: Quinces
+- item_code: '526'
+  item: Apricots
+- item_code: '530'
+  item: Sour cherries
+- item_code: '531'
+  item: Cherries
+- item_code: '534'
+  item: Peaches and nectarines
+- item_code: '536'
+  item: Plums and sloes
+- item_code: '541'
+  item: Other stone fruits
+- item_code: '542'
+  item: Other pome fruits
+- item_code: '544'
+  item: Strawberries
+- item_code: '547'
+  item: Raspberries
+- item_code: '549'
+  item: Gooseberries
+- item_code: '550'
+  item: Currants
+- item_code: '552'
+  item: Blueberries
+- item_code: '554'
+  item: Cranberries
+- item_code: '558'
+  item: Other berries and fruits of the genus vaccinium n.e.c.
+- item_code: '56'
+  item: Maize (corn)
+- item_code: '560'
+  item: Grapes
+- item_code: '567'
+  item: Watermelons
+- item_code: '568'
+  item: Cantaloupes and other melons
+- item_code: '569'
+  item: Figs
+- item_code: '571'
+  item: Mangoes, guavas and mangosteens
+- item_code: '572'
+  item: Avocados
+- item_code: '574'
+  item: Pineapples
+- item_code: '577'
+  item: Dates
+- item_code: '587'
+  item: Persimmons
+- item_code: '591'
+  item: Cashewapple
+- item_code: '592'
+  item: Kiwi fruit
+- item_code: '600'
+  item: Papayas
+- item_code: '603'
+  item: Other tropical fruits, n.e.c.
+- item_code: '619'
+  item: Other fruits, n.e.c.
+- item_code: '656'
+  item: Coffee, green
+- item_code: '661'
+  item: Cocoa beans
+- item_code: '667'
+  item: Tea leaves
+- item_code: '671'
+  item: Maté leaves
+- item_code: '677'
+  item: Hop cones
+- item_code: '687'
+  item: Pepper (Piper spp.), raw
+- item_code: '689'
+  item: Chillies and peppers, dry (Capsicum spp., Pimenta spp.), raw
+- item_code: '692'
+  item: Vanilla, raw
+- item_code: '693'
+  item: Cinnamon and cinnamon-tree flowers, raw
+- item_code: '698'
+  item: Cloves (whole stems), raw
+- item_code: '702'
+  item: Nutmeg, mace, cardamoms, raw
+- item_code: '71'
+  item: Rye
+- item_code: '711'
+  item: Anise, badian, coriander, cumin, caraway, fennel and juniper berries, raw
+- item_code: '720'
+  item: Ginger, raw
+- item_code: '723'
+  item: Other stimulant, spice and aromatic crops, n.e.c.
+- item_code: '748'
+  item: Peppermint, spearmint
+- item_code: '75'
+  item: Oats
+- item_code: '754'
+  item: Pyrethrum, dried flowers
+- item_code: '771'
+  item: Flax, raw or retted
+- item_code: '777'
+  item: True hemp, raw or retted
+- item_code: '780'
+  item: Jute, raw or retted
+- item_code: '782'
+  item: Kenaf, and other textile bast fibres, raw or retted
+- item_code: '788'
+  item: Ramie, raw or retted
+- item_code: '789'
+  item: Sisal, raw
+- item_code: '79'
+  item: Millet
+- item_code: '800'
+  item: Agave fibres, raw, n.e.c.
+- item_code: '809'
+  item: Abaca, manila hemp, raw
+- item_code: '813'
+  item: Coir, raw
+- item_code: '821'
+  item: Other fibre crops, raw, n.e.c.
+- item_code: '826'
+  item: Unmanufactured tobacco
+- item_code: '83'
+  item: Sorghum
+- item_code: '836'
+  item: Natural rubber in primary forms
+- item_code: '839'
+  item: Balata, gutta-percha, guayule, chicle and similar natural gums in primary
+    forms or in plates, sheets or strip
+- item_code: '89'
+  item: Buckwheat
+- item_code: '92'
+  item: Quinoa
+- item_code: '94'
+  item: Fonio
+- item_code: '97'
+  item: Triticale

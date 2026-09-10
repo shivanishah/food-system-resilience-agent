@@ -1,0 +1,108 @@
+# Silver harmonisation rules -- translated from CLAUDE.md/PHASE2.md. Referenced
+# by src/elt/silver.py. Changing these values changes analytical Silver output,
+# so edits here are a scope decision, not a code change.
+
+# An area is flagged is_aggregate=1 (World, continents, regions, income/trade
+# groupings) if its numeric FAO area code is >= this band, OR its name matches
+# name_denylist (case-insensitive substring). allowlist_codes protects real
+# countries FAOSTAT sometimes brackets in the same numeric range.
+aggregate_areas:
+  numeric_code_floor: 5000
+  name_denylist:
+    - "World"
+    - "Africa"
+    - "Americas"
+    - "Asia"
+    - "Europe"
+    - "Oceania"
+    - "European Union"
+    - "income"
+    - "developed"
+    - "developing"
+    - "Small Island Developing"
+    - "Land Locked Developing"
+    - "Least Developed"
+    - "Net Food Importing"
+    - "OECD"
+  allowlist_codes: []
+
+# Applied in Silver only when a target unit is actually needed downstream and
+# the factor is exact. Raw value/unit are always kept alongside
+# value_canonical/canonical_unit. Anything not listed here is left as-is.
+unit_conversions:
+  FBS:
+    "1000 t":
+      to_unit: "t"
+      factor: 1000
+      elements: ["Production", "Import quantity", "Export quantity", "Stock Variation",
+                 "Domestic supply quantity", "Feed", "Seed", "Losses", "Processing", "Food"]
+    "1000 No":
+      to_unit: "No"
+      factor: 1000
+      elements: ["Total Population - Both sexes"]
+
+# FAOSTAT flags treated as estimates for downstream weighting (is_estimate=1).
+# No row is ever excluded because of its flag.
+estimate_flags: ["E", "I", "M", "T"]
+
+# Per-domain natural key used to resolve duplicates in Silver (Bronze's own
+# natural_key already includes value+flag+note; this is the *dimensional* key
+# used to detect exact vs. conflicting duplicates once value is set aside).
+duplicates:
+  natural_keys:
+    QCL: [area_code, item_code, element_code, year_code]
+    TM: [reporter_area_code, partner_area_code, item_code, element_code, year_code]
+    FBS: [area_code, item_code, element_code, year_code]
+    FS: [area_code, item_code, year_code]
+    CAHD: [area_code, item_code, year_code]
+    RFM: [reporter_area_code, partner_area_code, item_code, element_code, year_code]
+    CP: [area_code, item_code, month_code, year_code]
+    GT: [area_code, item_code, element_code, source_code, year_code]
+    RL: [area_code, item_code, element_code, year_code]
+
+# Tables where a non-negative value is scientifically required. Everything
+# else (FBS stock variation, price/emission *changes*, etc.) is left
+# unconstrained.
+non_negative_elements:
+  QCL: ["Production", "Area harvested", "Yield"]
+  TM: ["Export quantity", "Export value", "Import quantity", "Import value"]
+  FBS: ["Production", "Import quantity", "Export quantity", "Feed", "Seed", "Losses",
+        "Processing", "Food"]
+  RFM: ["Export quantity", "Export value", "Import quantity", "Import value"]
+
+# Canonical commodity mapping: (domain, item_code) -> canonical commodity name.
+# Only primary staples/oilseeds/oils/sugar are mapped here; anything else is
+# left mapping_status='unmapped' and listed in data_quality/commodity_mapping.csv
+# for manual review rather than guessed by name-matching.
+commodity_mapping:
+  canonical:
+    QCL:
+      "15": "Wheat"
+      "56": "Maize"
+      "27": "Rice"
+      "44": "Barley"
+      "83": "Sorghum"
+      "116": "Potatoes"
+      "125": "Cassava"
+      "122": "Sweet potatoes"
+      "236": "Soybeans"
+      "242": "Groundnuts"
+      "270": "Rapeseed"
+      "267": "Sunflower seed"
+      "157": "Sugar beet"
+      "156": "Sugar cane"
+    TM:
+      "15": "Wheat"
+      "56": "Maize"
+      "27": "Rice"
+      "44": "Barley"
+      "83": "Sorghum"
+      "116": "Potatoes"
+      "125": "Cassava"
+      "122": "Sweet potatoes"
+      "236": "Soybeans"
+      "242": "Groundnuts"
+      "270": "Rapeseed"
+      "267": "Sunflower seed"
+      "157": "Sugar beet"
+      "156": "Sugar cane"

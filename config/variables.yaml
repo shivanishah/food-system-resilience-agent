@@ -1,0 +1,722 @@
+_comment: 'Per-domain Phase 2 ingestion scope, translated from DATA.md (source of
+  truth). `elements` are human-readable FAOSTAT element names, resolved to codes at
+  run time via live discovery (src/elt/extract.py) -- never hard-coded here. `item_scope`
+  is one of: `crops_only` (QCL only, see config/qcl_crop_items.yaml), `item_set:<name>`
+  (bounded list below), or `all` (domain is already small; see PHASE2.md / phase-2-data-engineering
+  skill for why each choice was made). `item_filter: client` marks a domain whose
+  server-side `item=` filter is confirmed broken (it silently returns zero rows for
+  an item code longer than that domain''s internal key width, and prefix-matches
+  shorter ones into unrequested child items) -- for those the scope is applied
+  client-side instead; see PHASE2.md section 15.'
+analysis_period:
+  start_year: 2014
+  end_year: 2024
+min_years_for_history: 7
+domains:
+  QCL:
+    priority: core
+    silver_table: silver_production
+    bilateral: false
+    item_scope: crops_only
+    elements:
+    - Production|t
+    - Area harvested
+    - Yield|kg/ha
+    extra_dimensions: []
+  TM:
+    priority: core
+    silver_table: silver_trade
+    bilateral: true
+    item_scope: item_set:food_commodities
+    elements:
+    - Export quantity|t
+    - Export value
+    - Import quantity|t
+    - Import value
+    extra_dimensions: []
+  FBS:
+    priority: core
+    silver_table: silver_food_balance
+    bilateral: false
+    item_scope: all
+    elements:
+    - Production
+    - Import quantity
+    - Export quantity
+    - Stock Variation
+    - Domestic supply quantity
+    - Feed
+    - Seed
+    - Losses
+    - Processing
+    - Food
+    - Food supply quantity (kg/capita/yr)
+    - Food supply (kcal/capita/day)
+    - Protein supply quantity (g/capita/day)
+    - Fat supply quantity (g/capita/day)
+    extra_dimensions: []
+  FS:
+    priority: core
+    silver_table: silver_food_security
+    bilateral: false
+    item_scope: item_set:fs_indicators
+    item_filter: client
+    elements: null
+    extra_dimensions: []
+  CAHD:
+    priority: core
+    silver_table: silver_affordability
+    bilateral: false
+    item_scope: item_set:cahd_items
+    item_filter: client
+    elements: null
+    extra_dimensions:
+    - release
+  RFM:
+    priority: supporting
+    silver_table: silver_fertilizer_trade
+    bilateral: true
+    item_scope: item_set:rfm_items
+    elements:
+    - Export quantity
+    - Export value
+    - Import quantity
+    - Import value
+    extra_dimensions: []
+  CP:
+    priority: supporting
+    silver_table: silver_prices
+    bilateral: false
+    item_scope: item_set:cp_items
+    item_filter: client
+    elements: null
+    extra_dimensions:
+    - month
+  GT:
+    priority: supporting
+    silver_table: silver_emissions
+    bilateral: false
+    item_scope: item_set:gt_items
+    elements: all
+    extra_dimensions:
+    - source
+  RL:
+    priority: supporting
+    silver_table: silver_land_use
+    bilateral: false
+    item_scope: item_set:rl_items
+    elements: all
+    extra_dimensions: []
+item_sets:
+  food_commodities:
+  - item_code: '101'
+    item: Canary seed
+  - item_code: '103'
+    item: Mixed grain
+  - item_code: '108'
+    item: Cereals n.e.c.
+  - item_code: '116'
+    item: Potatoes
+  - item_code: '122'
+    item: Sweet potatoes
+  - item_code: '125'
+    item: Cassava, fresh
+  - item_code: '135'
+    item: Yautia
+  - item_code: '136'
+    item: Taro
+  - item_code: '137'
+    item: Yams
+  - item_code: '149'
+    item: Edible roots and tubers with high starch or inulin content, n.e.c., fresh
+  - item_code: '15'
+    item: Wheat
+  - item_code: '156'
+    item: Sugar cane
+  - item_code: '157'
+    item: Sugar beet
+  - item_code: '161'
+    item: Other sugar crops n.e.c.
+  - item_code: '176'
+    item: Beans, dry
+  - item_code: '181'
+    item: Broad beans and horse beans, dry
+  - item_code: '187'
+    item: Peas, dry
+  - item_code: '191'
+    item: Chick peas, dry
+  - item_code: '195'
+    item: Cow peas, dry
+  - item_code: '197'
+    item: Pigeon peas, dry
+  - item_code: '201'
+    item: Lentils, dry
+  - item_code: '203'
+    item: Bambara beans, dry
+  - item_code: '205'
+    item: Vetches
+  - item_code: '210'
+    item: Lupins
+  - item_code: '211'
+    item: Other pulses n.e.c.
+  - item_code: '216'
+    item: Brazil nuts, in shell
+  - item_code: '217'
+    item: Cashew nuts, in shell
+  - item_code: '220'
+    item: Chestnuts, in shell
+  - item_code: '221'
+    item: Almonds, in shell
+  - item_code: '222'
+    item: Walnuts, in shell
+  - item_code: '223'
+    item: Pistachios, in shell
+  - item_code: '224'
+    item: Kola nuts
+  - item_code: '225'
+    item: Hazelnuts, in shell
+  - item_code: '226'
+    item: Areca nuts
+  - item_code: '234'
+    item: Other nuts (excluding wild edible nuts and groundnuts), in shell, n.e.c.
+  - item_code: '236'
+    item: Soya beans
+  - item_code: '242'
+    item: Groundnuts, excluding shelled
+  - item_code: '249'
+    item: Coconuts, in shell
+  - item_code: '254'
+    item: Oil palm fruit
+  - item_code: '260'
+    item: Olives
+  - item_code: '263'
+    item: Karite nuts (sheanuts)
+  - item_code: '265'
+    item: Castor oil seeds
+  - item_code: '267'
+    item: Sunflower seed
+  - item_code: '27'
+    item: Rice
+  - item_code: '270'
+    item: Rape or colza seed
+  - item_code: '275'
+    item: Tung nuts
+  - item_code: '277'
+    item: Jojoba seeds
+  - item_code: '280'
+    item: Safflower seed
+  - item_code: '289'
+    item: Sesame seed
+  - item_code: '292'
+    item: Mustard seed
+  - item_code: '296'
+    item: Poppy seed
+  - item_code: '299'
+    item: Melonseed
+  - item_code: '305'
+    item: Tallowtree seeds
+  - item_code: '310'
+    item: Kapok fruit
+  - item_code: '328'
+    item: Seed cotton, unginned
+  - item_code: '333'
+    item: Linseed
+  - item_code: '336'
+    item: Hempseed
+  - item_code: '339'
+    item: Other oil seeds, n.e.c.
+  - item_code: '358'
+    item: Cabbages
+  - item_code: '366'
+    item: Artichokes
+  - item_code: '367'
+    item: Asparagus
+  - item_code: '372'
+    item: Lettuce and chicory
+  - item_code: '373'
+    item: Spinach
+  - item_code: '378'
+    item: Cassava leaves
+  - item_code: '388'
+    item: Tomatoes
+  - item_code: '393'
+    item: Cauliflowers and broccoli
+  - item_code: '394'
+    item: Pumpkins, squash and gourds
+  - item_code: '397'
+    item: Cucumbers and gherkins
+  - item_code: '399'
+    item: Eggplants (aubergines)
+  - item_code: '401'
+    item: Chillies and peppers, green (Capsicum spp. and Pimenta spp.)
+  - item_code: '402'
+    item: Onions and shallots, green
+  - item_code: '403'
+    item: Onions and shallots, dry (excluding dehydrated)
+  - item_code: '406'
+    item: Green garlic
+  - item_code: '407'
+    item: Leeks and other alliaceous vegetables
+  - item_code: '414'
+    item: Other beans, green
+  - item_code: '417'
+    item: Peas, green
+  - item_code: '420'
+    item: Broad beans and horse beans, green
+  - item_code: '423'
+    item: String beans
+  - item_code: '426'
+    item: Carrots and turnips
+  - item_code: '430'
+    item: Okra
+  - item_code: '44'
+    item: Barley
+  - item_code: '446'
+    item: Green corn (maize)
+  - item_code: '449'
+    item: Mushrooms and truffles
+  - item_code: '459'
+    item: Chicory roots
+  - item_code: '461'
+    item: Locust beans (carobs)
+  - item_code: '463'
+    item: Other vegetables, fresh n.e.c.
+  - item_code: '486'
+    item: Bananas
+  - item_code: '489'
+    item: Plantains and cooking bananas
+  - item_code: '490'
+    item: Oranges
+  - item_code: '495'
+    item: Tangerines, mandarins, clementines
+  - item_code: '497'
+    item: Lemons and limes
+  - item_code: '507'
+    item: Pomelos and grapefruits
+  - item_code: '512'
+    item: Other citrus fruit, n.e.c.
+  - item_code: '515'
+    item: Apples
+  - item_code: '521'
+    item: Pears
+  - item_code: '523'
+    item: Quinces
+  - item_code: '526'
+    item: Apricots
+  - item_code: '530'
+    item: Sour cherries
+  - item_code: '531'
+    item: Cherries
+  - item_code: '534'
+    item: Peaches and nectarines
+  - item_code: '536'
+    item: Plums and sloes
+  - item_code: '541'
+    item: Other stone fruits
+  - item_code: '542'
+    item: Other pome fruits
+  - item_code: '544'
+    item: Strawberries
+  - item_code: '547'
+    item: Raspberries
+  - item_code: '549'
+    item: Gooseberries
+  - item_code: '550'
+    item: Currants
+  - item_code: '552'
+    item: Blueberries
+  - item_code: '554'
+    item: Cranberries
+  - item_code: '558'
+    item: Other berries and fruits of the genus vaccinium n.e.c.
+  - item_code: '56'
+    item: Maize (corn)
+  - item_code: '560'
+    item: Grapes
+  - item_code: '567'
+    item: Watermelons
+  - item_code: '568'
+    item: Cantaloupes and other melons
+  - item_code: '569'
+    item: Figs
+  - item_code: '571'
+    item: Mangoes, guavas and mangosteens
+  - item_code: '572'
+    item: Avocados
+  - item_code: '574'
+    item: Pineapples
+  - item_code: '577'
+    item: Dates
+  - item_code: '587'
+    item: Persimmons
+  - item_code: '591'
+    item: Cashewapple
+  - item_code: '592'
+    item: Kiwi fruit
+  - item_code: '600'
+    item: Papayas
+  - item_code: '603'
+    item: Other tropical fruits, n.e.c.
+  - item_code: '619'
+    item: Other fruits, n.e.c.
+  - item_code: '656'
+    item: Coffee, green
+  - item_code: '661'
+    item: Cocoa beans
+  - item_code: '667'
+    item: Tea leaves
+  - item_code: '671'
+    item: Maté leaves
+  - item_code: '677'
+    item: Hop cones
+  - item_code: '687'
+    item: Pepper (Piper spp.), raw
+  - item_code: '689'
+    item: Chillies and peppers, dry (Capsicum spp., Pimenta spp.), raw
+  - item_code: '692'
+    item: Vanilla, raw
+  - item_code: '693'
+    item: Cinnamon and cinnamon-tree flowers, raw
+  - item_code: '698'
+    item: Cloves (whole stems), raw
+  - item_code: '702'
+    item: Nutmeg, mace, cardamoms, raw
+  - item_code: '71'
+    item: Rye
+  - item_code: '711'
+    item: Anise, badian, coriander, cumin, caraway, fennel and juniper berries, raw
+  - item_code: '720'
+    item: Ginger, raw
+  - item_code: '723'
+    item: Other stimulant, spice and aromatic crops, n.e.c.
+  - item_code: '748'
+    item: Peppermint, spearmint
+  - item_code: '75'
+    item: Oats
+  - item_code: '754'
+    item: Pyrethrum, dried flowers
+  - item_code: '771'
+    item: Flax, raw or retted
+  - item_code: '777'
+    item: True hemp, raw or retted
+  - item_code: '780'
+    item: Jute, raw or retted
+  - item_code: '782'
+    item: Kenaf, and other textile bast fibres, raw or retted
+  - item_code: '788'
+    item: Ramie, raw or retted
+  - item_code: '789'
+    item: Sisal, raw
+  - item_code: '79'
+    item: Millet
+  - item_code: '800'
+    item: Agave fibres, raw, n.e.c.
+  - item_code: '809'
+    item: Abaca, manila hemp, raw
+  - item_code: '813'
+    item: Coir, raw
+  - item_code: '821'
+    item: Other fibre crops, raw, n.e.c.
+  - item_code: '826'
+    item: Unmanufactured tobacco
+  - item_code: '83'
+    item: Sorghum
+  - item_code: '836'
+    item: Natural rubber in primary forms
+  - item_code: '839'
+    item: Balata, gutta-percha, guayule, chicle and similar natural gums in primary
+      forms or in plates, sheets or strip
+  - item_code: '89'
+    item: Buckwheat
+  - item_code: '92'
+    item: Quinoa
+  - item_code: '94'
+    item: Fonio
+  - item_code: '97'
+    item: Triticale
+  fs_indicators:
+  - item_code: '21010'
+    item: Average dietary energy supply adequacy (percent) (3-year average)
+  - item_code: '22000'
+    item: Dietary energy supply used in the estimation of the prevalence of undernourishment
+      (kcal/cap/day) (3-year average)
+  - item_code: '21013'
+    item: Average protein supply (g/cap/day) (3-year average)
+  - item_code: '21014'
+    item: Average supply of protein of animal origin (g/cap/day) (3-year average)
+  - item_code: '210041'
+    item: Prevalence of undernourishment (percent) (3-year average)
+  - item_code: '210011'
+    item: Number of people undernourished (million) (3-year average)
+  - item_code: '210401'
+    item: Prevalence of severe food insecurity in the total population (percent) (3-year
+      average)
+  - item_code: '210071'
+    item: Number of severely food insecure people (million) (3-year average)
+  - item_code: '210091'
+    item: Prevalence of moderate or severe food insecurity in the total population
+      (percent) (3-year average)
+  - item_code: '210081'
+    item: Number of moderately or severely food insecure people (million) (3-year
+      average)
+  - item_code: '21035'
+    item: Cereal import dependency ratio (percent) (3-year average)
+  - item_code: '21031'
+    item: Per capita food supply variability (kcal/cap/day)
+  - item_code: '21033'
+    item: Value of food imports in total merchandise exports (percent) (3-year average)
+  cahd_items:
+  - item_code: '70040'
+    item: Cost of a healthy diet (CoHD)
+  - item_code: '70070'
+    item: Cost of starchy staples
+  - item_code: '70080'
+    item: Cost of animal source foods
+  - item_code: '70090'
+    item: Cost of legumes, nuts and seeds
+  - item_code: '70100'
+    item: Cost of vegetables
+  - item_code: '70110'
+    item: Cost of fruits
+  - item_code: '7005'
+    item: Prevalence of unaffordability (PUA)
+  - item_code: '7006'
+    item: Number of people unable to afford a healthy diet (NUA)
+  cp_items:
+  - item_code: '23013'
+    item: Consumer Prices, Food Indices (2015 = 100)
+  - item_code: '23014'
+    item: Food price inflation
+  rfm_items:
+  - item_code: '3102'
+    item: Nutrient nitrogen N (total)
+  - item_code: '3103'
+    item: Nutrient phosphate P2O5 (total)
+  - item_code: '3104'
+    item: Nutrient potash K2O (total)
+  - item_code: '4001'
+    item: Urea
+  - item_code: '4002'
+    item: Ammonium sulphate
+  - item_code: '4003'
+    item: Ammonium nitrate (AN)
+  - item_code: '4004'
+    item: Calcium ammonium nitrate (CAN) and other mixtures with calcium carbonate
+  - item_code: '4005'
+    item: Sodium nitrate
+  - item_code: '4006'
+    item: Urea and ammonium nitrate solutions (UAN)
+  - item_code: '4007'
+    item: Ammonia, anhydrous
+  - item_code: '4008'
+    item: Other nitrogenous fertilizers, n.e.c.
+  - item_code: '4011'
+    item: Phosphate rock
+  - item_code: '4012'
+    item: Superphosphates above 35%
+  - item_code: '4013'
+    item: Superphosphates, other
+  - item_code: '4014'
+    item: Other phosphatic fertilizers, n.e.c.
+  - item_code: '4016'
+    item: Potassium chloride (muriate of potash) (MOP)
+  - item_code: '4017'
+    item: Potassium sulphate (sulphate of potash) (SOP)
+  - item_code: '4018'
+    item: Other potassic fertilizers, n.e.c.
+  - item_code: '4021'
+    item: NPK fertilizers
+  - item_code: '4022'
+    item: Diammonium phosphate (DAP)
+  - item_code: '4023'
+    item: Monoammonium phosphate (MAP)
+  - item_code: '4024'
+    item: Other NP compounds
+  - item_code: '4025'
+    item: Potassium nitrate
+  - item_code: '4027'
+    item: PK compounds
+  - item_code: '4030'
+    item: Fertilizers n.e.c.
+  gt_items:
+  - item_code: '1707'
+    item: LULUCF
+  - item_code: '1709'
+    item: Agricultural Soils
+  - item_code: '1711'
+    item: IPCC Agriculture
+  - item_code: '5058'
+    item: Enteric Fermentation
+  - item_code: '5059'
+    item: Manure Management
+  - item_code: '5060'
+    item: Rice Cultivation
+  - item_code: '5061'
+    item: Synthetic Fertilizers
+  - item_code: '5062'
+    item: Manure applied to Soils
+  - item_code: '5063'
+    item: Manure left on Pasture
+  - item_code: '5064'
+    item: Crop Residues
+  - item_code: '5066'
+    item: Burning - Crop residues
+  - item_code: '5084'
+    item: Emissions from crops
+  - item_code: '5085'
+    item: Emissions from livestock
+  - item_code: '6504'
+    item: Fertilizers Manufacturing
+  - item_code: '6505'
+    item: Food Household Consumption
+  - item_code: '6506'
+    item: Food Packaging
+  - item_code: '6507'
+    item: Food Processing
+  - item_code: '6508'
+    item: Food Retail
+  - item_code: '6516'
+    item: Land-use change
+  - item_code: '6517'
+    item: Pre- and post-production
+  - item_code: '6518'
+    item: Agrifood systems
+  - item_code: '6729'
+    item: Drained organic soils
+  - item_code: '67291'
+    item: Drained organic soils (N2O)
+  - item_code: '67292'
+    item: Drained organic soils (CO2)
+  - item_code: '6750'
+    item: Net Forest conversion
+  - item_code: '6751'
+    item: Forestland
+  - item_code: '6795'
+    item: Savanna fires
+  - item_code: '6815'
+    item: Food Transport
+  - item_code: '6817'
+    item: IPPU
+  - item_code: '6818'
+    item: Waste
+  - item_code: '6819'
+    item: Other
+  - item_code: '6820'
+    item: International bunkers
+  - item_code: '6821'
+    item: Energy
+  - item_code: '6824'
+    item: AFOLU
+  - item_code: '6825'
+    item: All sectors with LULUCF
+  - item_code: '6829'
+    item: All sectors without LULUCF
+  - item_code: '6966'
+    item: Other sectors
+  - item_code: '6991'
+    item: Agrifood Systems Waste Disposal
+  - item_code: '6992'
+    item: Forest fires
+  - item_code: '69921'
+    item: Fires in humid tropical forests
+  - item_code: '6993'
+    item: Fires in organic soils
+  - item_code: '6994'
+    item: On-farm energy use
+  - item_code: '6995'
+    item: Emissions on agricultural land
+  - item_code: '6996'
+    item: Farm gate
+  - item_code: '6997'
+    item: Pesticides Manufacturing
+  rl_items:
+  - item_code: '6600'
+    item: Country area
+  - item_code: '6601'
+    item: Land area
+  - item_code: '6602'
+    item: Agriculture
+  - item_code: '6610'
+    item: Agricultural land
+  - item_code: '6611'
+    item: Agriculture area actually irrigated
+  - item_code: '6616'
+    item: Land area actually irrigated
+  - item_code: '6620'
+    item: Cropland
+  - item_code: '6621'
+    item: Arable land
+  - item_code: '6630'
+    item: Temporary crops
+  - item_code: '6633'
+    item: Temporary meadows and pastures
+  - item_code: '6640'
+    item: Temporary fallow
+  - item_code: '6641'
+    item: Coastal waters used for aquac. or holding facilities
+  - item_code: '6642'
+    item: Coastal waters used for capture fisheries
+  - item_code: '6643'
+    item: Exclusive Economic Zone (EEZ)
+  - item_code: '6644'
+    item: EEZ used for aquac. or holding facilities
+  - item_code: '6645'
+    item: EEZ used for capture fisheries
+  - item_code: '6646'
+    item: Forest land
+  - item_code: '6649'
+    item: Farm buildings and Farmyards
+  - item_code: '6650'
+    item: Permanent crops
+  - item_code: '6655'
+    item: Permanent meadows and pastures
+  - item_code: '6656'
+    item: Perm. meadows & pastures - Cultivated
+  - item_code: '6657'
+    item: Perm. meadows & pastures area actually irrig.
+  - item_code: '6659'
+    item: Perm. meadows & pastures - Nat. growing
+  - item_code: '6664'
+    item: Cropland area under conventional tillage
+  - item_code: '6665'
+    item: Cropland area under conservation tillage
+  - item_code: '6666'
+    item: Cropland area under zero or no tillage
+  - item_code: '6668'
+    item: Cropland area under organic agric.
+  - item_code: '6669'
+    item: Cropland area certified organic
+  - item_code: '6670'
+    item: Other land
+  - item_code: '6671'
+    item: Agriculture area under organic agric.
+  - item_code: '6672'
+    item: Agriculture area certified organic
+  - item_code: '6680'
+    item: Inland waters
+  - item_code: '6681'
+    item: Perm. meadows & pastures area under organic agric.
+  - item_code: '6682'
+    item: Perm. meadows & pastures area certified organic
+  - item_code: '6690'
+    item: Land area equipped for irrigation
+  - item_code: '6694'
+    item: Cropland area actually irrigated
+  - item_code: '6695'
+    item: Forestry area actually irrigated
+  - item_code: '6714'
+    item: Primary Forest
+  - item_code: '6716'
+    item: Planted Forest
+  - item_code: '6717'
+    item: Naturally regenerating forest
+  - item_code: '6762'
+    item: Land used for aquaculture
+  - item_code: '6767'
+    item: Inland waters used for aquac. or holding facilities
+  - item_code: '6771'
+    item: Inland waters used for capture fisheries
+  - item_code: '6773'
+    item: Coastal waters
+  - item_code: '6774'
+    item: Cropland area under protective cover

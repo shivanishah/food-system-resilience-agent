@@ -1,0 +1,37 @@
+# FAOSTAT domains explored/ingested by this project.
+# `priority: core` = MVP (QCL, TM, FBS, FS, CAHD); `priority: optional`
+# = only after the MVP works (per CLAUDE.md). Codes are FAOSTAT's own
+# domain codes -- discovered via FAOSTATClient.get_groups_and_domains(),
+# not invented here.
+domains:
+  - code: QCL
+    name: Crops and livestock products
+    priority: core
+  - code: TM
+    name: Detailed trade matrix
+    priority: core
+  - code: FBS
+    name: Food balances
+    priority: core
+  - code: FS
+    name: Suite of Food Security Indicators
+    priority: core
+  - code: CAHD
+    name: Cost and Affordability of a Healthy Diet
+    priority: core
+  - code: RFM
+    name: Detailed trade matrix (fertilizers)
+    priority: optional
+  - code: CP
+    name: Consumer Price Indices
+    priority: optional
+  - code: GT
+    name: Emissions totals
+    priority: optional
+  - code: RL
+    name: Land use
+    priority: optional
+
+analysis_period:
+  start_year: 2014
+  end_year: 2024
