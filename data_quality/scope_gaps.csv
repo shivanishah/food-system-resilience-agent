@@ -1,0 +1,11 @@
+domain,item_code,classification,counts_against_status,detail
+GT,6966,absent_at_source,False,no observation in any year or country; the item filter is sound at this code width (control item 1707 returned 62149 rows)
+QCL,839,out_of_window,False,published 1961-1990 (272 rows); nothing in the requested 2014-2024
+TM,254,absent_from_dimension,False,not listed in TM's own item dimension
+TM,277,absent_from_dimension,False,not listed in TM's own item dimension
+TM,305,absent_from_dimension,False,not listed in TM's own item dimension
+TM,310,absent_from_dimension,False,not listed in TM's own item dimension
+TM,328,absent_from_dimension,False,not listed in TM's own item dimension
+TM,378,absent_from_dimension,False,not listed in TM's own item dimension
+TM,542,absent_from_dimension,False,not listed in TM's own item dimension
+TM,800,absent_from_dimension,False,not listed in TM's own item dimension

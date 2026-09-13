@@ -177,7 +177,26 @@ else:
     print(f"{len(missing)} requested variable(s) not returned by the API:")
     display(missing)
 """),
-    ("markdown", "## 12. Full per-domain report"),
+    ("markdown", """\
+## 12. Requested items that did not arrive -- and the proof of why
+
+Where a domain retrieved fewer items than it requested, the pipeline probes
+each missing item live rather than assuming. Only a shortfall *established* as
+source behaviour is forgiven; anything unproven keeps the domain at `partial`.
+See `PHASE2.md` section 15."""),
+    ("code", """\
+gaps = pd.read_csv(DQ / "scope_gaps.csv")
+if gaps.empty:
+    print("Every requested item arrived.")
+else:
+    print(gaps.groupby("classification").size().to_string())
+    print()
+    unexplained = gaps[gaps.counts_against_status]
+    print(f"{len(unexplained)} gap(s) still counting against a domain's status"
+          f"{' -- investigate these' if len(unexplained) else ' (all explained)'}")
+    display(gaps)
+"""),
+    ("markdown", "## 13. Full per-domain report"),
     ("code", 'print((REPO_ROOT / "reports" / "phase2_data_quality.md").read_text())'),
 ]
 

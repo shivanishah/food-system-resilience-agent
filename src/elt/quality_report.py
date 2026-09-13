@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import json
 import math
+from collections.abc import Sequence
 from pathlib import Path
 from typing import Any
 
@@ -22,6 +23,7 @@ from sqlalchemy import Engine, func, select
 
 from src.database.models import BRONZE_TABLES, SILVER_TABLES, etl_runs, silver_commodity
 from src.elt.qcl_items import DEFAULT_QCL_CROP_ITEMS_PATH, load_qcl_crop_items
+from src.elt.scope_gaps import ScopeGap
 
 DATA_QUALITY_DIR = Path("data_quality")
 REPORT_PATH = Path("reports/phase2_data_quality.md")
@@ -303,7 +305,60 @@ def _year_list_cell(value: Any) -> str:
     return ", ".join(str(y) for y in years) if years else "-"
 
 
-def render_report(engine: Engine, pipeline_run_id: str, pipeline_cfg) -> None:
+def write_scope_gaps(gaps: Sequence[ScopeGap]) -> None:
+    """Every requested item that did not arrive, with the live probe that
+    established why (see ``src/elt/scope_gaps.py``)."""
+    _write_csv(
+        pd.DataFrame(
+            [
+                {
+                    "domain": g.domain,
+                    "item_code": g.item_code,
+                    "classification": g.classification,
+                    "counts_against_status": g.counts_against_status,
+                    "detail": g.detail,
+                }
+                for g in gaps
+            ]
+        ),
+        "scope_gaps.csv",
+        columns=["domain", "item_code", "classification", "counts_against_status", "detail"],
+    )
+
+
+def _scope_gap_lines(gaps: Sequence[ScopeGap]) -> list[str]:
+    if not gaps:
+        return []
+    lines = [
+        "",
+        "## Requested items that did not arrive, and why",
+        "",
+        "A shortfall is only forgiven once it has been *established* live as genuine source "
+        "behaviour. Anything unproven keeps the domain at `partial`, because the one FAOSTAT "
+        "failure mode that cost this project real data was silent (see `PHASE2.md` section 15).",
+        "",
+        "| Domain | Item | Classification | Counts against status | Evidence |",
+        "|---|---|---|---|---|",
+    ]
+    for g in sorted(gaps, key=lambda g: (g.domain, g.item_code)):
+        lines.append(
+            f"| {g.domain} | {g.item_code} | `{g.classification}` | "
+            f"{'yes' if g.counts_against_status else 'no'} | {g.detail} |"
+        )
+    lines += [
+        "",
+        "Classifications: `absent_from_dimension` - FAO's own item dimension for that domain does "
+        "not list the code, so it is no longer requested; `out_of_window` - the series exists but "
+        "has no observation in the requested years; `absent_at_source` - in the dimension, but FAO "
+        "publishes no observation for it at all; `filter_bug` / `unverified` - not shown to be a "
+        "source gap, and therefore still counted.",
+    ]
+    return lines
+
+
+def render_report(
+    engine: Engine, pipeline_run_id: str, pipeline_cfg, gaps: Sequence[ScopeGap] = ()
+) -> None:
     runs = pd.read_sql(select(etl_runs).where(etl_runs.c.pipeline_run_id == pipeline_run_id), engine)
     runs = runs.sort_values("domain")
 
@@ -365,6 +420,7 @@ def render_report(engine: Engine, pipeline_run_id: str, pipeline_cfg) -> None:
             )
             lines.append(f"- **{r['domain']}** ({r['priority']}): `{r['status']}` - {detail}")
 
+    lines += _scope_gap_lines(gaps)
     lines += scope_lines
 
     crop_items = load_qcl_crop_items(DEFAULT_QCL_CROP_ITEMS_PATH)
@@ -411,6 +467,7 @@ def generate_all(
     harmonisation,
     all_conflicts: dict[str, list[dict[str, Any]]],
     validation_rows: list[dict[str, Any]],
+    gaps: Sequence[ScopeGap] = (),
 ) -> None:
     write_bronze_unit_inventory(engine)
     write_bronze_missingness(engine)
@@ -421,4 +478,5 @@ def generate_all(
     write_historical_coverage(engine, pipeline_cfg)
     write_unit_conversions_applied(engine, harmonisation)
     write_silver_validation(validation_rows)
-    render_report(engine, pipeline_run_id, pipeline_cfg)
+    write_scope_gaps(gaps)
+    render_report(engine, pipeline_run_id, pipeline_cfg, gaps)

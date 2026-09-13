@@ -15,6 +15,7 @@ from src.elt.extract import (
     _parse_requested_element,
     coverage_for_existing_bronze,
     extract_domain,
+    restrict_to_item_dimension,
     parse_year_code,
     resolve_elements,
     scope_filter_items,
@@ -150,6 +151,10 @@ class _FakeDiscoveryClient:
     def get_areas(self, domain: str) -> _FakeAPIResult:
         return _FakeAPIResult(data=[{"Country Code": "2"}, {"Country Code": "3"}])
 
+    def get_items(self, domain: str) -> _FakeAPIResult:
+        # 15 and 56 are configured; 99 exists in the domain but is not wanted.
+        return _FakeAPIResult(data=[{"Item Code": "15"}, {"Item Code": "56"}, {"Item Code": "99"}])
+
     def get_data(self, *args, **kwargs):  # pragma: no cover - must not be called
         self.data_calls += 1
         raise AssertionError("coverage_for_existing_bronze must not re-request observations")
@@ -261,3 +266,29 @@ def test_client_item_filter_is_rejected_for_a_bilateral_domain():
     spec = config.domains["TM"].model_copy(update={"item_filter": "client"})
     with pytest.raises(ValueError, match="not supported for a bilateral domain"):
         extract_domain(_FakeDiscoveryClient(), _seeded_tm_engine(), "run-1", "TM", spec, config)
+
+
+def test_restrict_to_item_dimension_drops_codes_the_domain_does_not_list():
+    """TM's commodity list is copied from QCL's crops, and 8 of those 162 are
+    not in TM's item dimension at all -- requesting them produced an
+    unexplainable shortfall on every run."""
+    requestable, absent, dimension = restrict_to_item_dimension(
+        _FakeDiscoveryClient(), "TM", ["15", "56", "254"]
+    )
+    assert requestable == ["15", "56"]
+    assert absent == ["254"]
+    assert set(dimension) == {"15", "56", "99"}
+
+
+def test_restrict_to_item_dimension_passes_an_unbounded_scope_through():
+    assert restrict_to_item_dimension(_FakeDiscoveryClient(), "FBS", None) == (None, [], [])
+
+
+def test_coverage_for_existing_bronze_records_the_item_codes_behind_the_counts():
+    config = _tm_config()
+    coverage = coverage_for_existing_bronze(
+        _FakeDiscoveryClient(), _seeded_tm_engine(), "TM", config.domains["TM"], config
+    ).coverage
+    assert coverage.requested_item_codes == ["15", "56"]
+    assert coverage.retrieved_item_codes == ["15", "56"]
+    assert coverage.items_absent_from_dimension == []

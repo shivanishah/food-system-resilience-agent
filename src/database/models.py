@@ -331,3 +331,22 @@ etl_runs = Table(
     Column("finished_at", String),
     Column("error_message", Text),
 )
+
+
+# One row per requested item that did not arrive, with the live evidence for
+# why (see src/elt/scope_gaps.py). Persisted rather than kept in memory so a
+# report regenerated later -- or by a run that only touched some domains --
+# still shows every gap in the run, not just the latest slice.
+scope_gaps = Table(
+    "scope_gaps",
+    metadata,
+    Column("id", Integer, primary_key=True, autoincrement=True),
+    Column("pipeline_run_id", String, nullable=False),
+    Column("domain", String, nullable=False),
+    Column("item_code", String, nullable=False),
+    Column("classification", String, nullable=False),
+    Column("counts_against_status", Integer, nullable=False),
+    Column("detail", Text, nullable=False),
+    Column("recorded_at", String, nullable=False),
+    UniqueConstraint("pipeline_run_id", "domain", "item_code", name="uq_scope_gaps"),
+)

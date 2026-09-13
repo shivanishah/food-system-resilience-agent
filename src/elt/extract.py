@@ -82,6 +82,14 @@ class DomainCoverage:
     retrieved_item_count: int = 0
     country_count: int = 0
     partner_count: int | None = None
+    # Item-level detail behind the counts above, used to classify any gap
+    # (src/elt/scope_gaps.py). `requested_item_codes` is the scope actually
+    # sent to the API -- i.e. after dropping codes FAO's own item dimension
+    # for this domain does not list.
+    requested_item_codes: list[str] = field(default_factory=list)
+    retrieved_item_codes: list[str] = field(default_factory=list)
+    dimension_item_codes: list[str] = field(default_factory=list)
+    items_absent_from_dimension: list[str] = field(default_factory=list)
 
 
 @dataclass
@@ -212,6 +220,32 @@ def scope_filter_rows(rows: list[DataObservation], start_year: int, end_year: in
     return kept
 
 
+def restrict_to_item_dimension(
+    client: FAOSTATClient, domain: str, item_codes: list[str] | None
+) -> tuple[list[str] | None, list[str], list[str]]:
+    """Intersect a configured item scope with the domain's own item dimension.
+
+    Returns ``(requestable, absent, dimension_codes)``. Asking for a code the
+    source does not list is a request bug, not a data gap: the project's TM
+    commodity subset is derived from the QCL crop list, and 8 of those 162
+    crops are simply not traded bilaterally in FAOSTAT's TM dimension. Sending
+    them produced an unexplainable shortfall on every run; dropping them here
+    -- and recording which -- makes the request honest.
+    """
+    if item_codes is None:
+        return None, [], []
+    dimension_codes = [str(row["Item Code"]) for row in client.get_items(domain).data]
+    known = set(dimension_codes)
+    requestable = [code for code in item_codes if code in known]
+    absent = [code for code in item_codes if code not in known]
+    if absent:
+        logger.info(
+            "Domain %s: %d configured item(s) absent from its item dimension, not requested: %s",
+            domain, len(absent), absent,
+        )
+    return requestable, absent, dimension_codes
+
+
 def extract_domain(
     client: FAOSTATClient,
     engine: Engine,
@@ -234,7 +268,9 @@ def extract_domain(
         resolved_elements, missing_elements = resolve_elements(client, domain, spec.elements)
         element_codes = list(resolved_elements.values()) or None
 
-    item_codes = pipeline_cfg.resolve_item_codes(domain)
+    item_codes, absent_from_dimension, dimension_codes = restrict_to_item_dimension(
+        client, domain, pipeline_cfg.resolve_item_codes(domain)
+    )
 
     # A domain flagged `item_filter: client` is requested without an item
     # filter and scoped here instead (see :func:`scope_filter_items`).
@@ -300,6 +336,10 @@ def extract_domain(
         retrieved_item_count=len(stats.item_codes_seen),
         country_count=country_count,
         partner_count=partner_count,
+        requested_item_codes=list(item_codes) if item_codes is not None else [],
+        retrieved_item_codes=sorted(stats.item_codes_seen),
+        dimension_item_codes=dimension_codes,
+        items_absent_from_dimension=absent_from_dimension,
     )
     return ExtractResult(
         domain=domain, coverage=coverage, rows_received=stats.rows_received, bronze_rows=stats.rows_written
@@ -337,13 +377,17 @@ def coverage_for_existing_bronze(
     else:
         resolved_elements, missing_elements = resolve_elements(client, domain, spec.elements)
 
-    item_codes = pipeline_cfg.resolve_item_codes(domain)
+    item_codes, absent_from_dimension, dimension_codes = restrict_to_item_dimension(
+        client, domain, pipeline_cfg.resolve_item_codes(domain)
+    )
 
     with engine.connect() as conn:
         bronze_rows = conn.execute(select(func.count()).select_from(table)).scalar_one()
-        retrieved_items = conn.execute(
-            select(func.count(func.distinct(table.c.item_code)))
-        ).scalar_one()
+        retrieved_item_codes = sorted(
+            str(code)
+            for (code,) in conn.execute(select(table.c.item_code).distinct())
+            if code is not None
+        )
         observed_year_codes = [
             str(code)
             for (code,) in conn.execute(select(table.c.year_code).distinct())
@@ -376,9 +420,13 @@ def coverage_for_existing_bronze(
         resolved_element_codes=resolved_elements,
         missing_elements=missing_elements,
         requested_item_count=len(item_codes) if item_codes is not None else None,
-        retrieved_item_count=retrieved_items,
+        retrieved_item_count=len(retrieved_item_codes),
         country_count=country_count,
         partner_count=partner_count,
+        requested_item_codes=list(item_codes) if item_codes is not None else [],
+        retrieved_item_codes=retrieved_item_codes,
+        dimension_item_codes=dimension_codes,
+        items_absent_from_dimension=absent_from_dimension,
     )
     return ExtractResult(
         domain=domain, coverage=coverage, rows_received=bronze_rows, bronze_rows=bronze_rows

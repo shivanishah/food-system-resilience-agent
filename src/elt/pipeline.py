@@ -39,11 +39,18 @@ from src.api.client import FAOSTATClient
 from src.config import configure_logging
 from src.database.connection import checkpoint_wal, get_engine, init_db
 from src.database.models import etl_runs
-from src.elt.config import load_harmonisation_config, load_pipeline_config
+from src.elt.config import PipelineConfig, load_harmonisation_config, load_pipeline_config
 from src.elt.etl_runs import DomainRunResult, latest_pipeline_run_id, record_run
 from src.elt.extract import DomainCoverage, coverage_for_existing_bronze, extract_domain
 from src.elt.qcl_items import refresh_qcl_crop_items
 from src.elt.quality_report import generate_all
+from src.elt.scope_gaps import (
+    ScopeGap,
+    classify_missing_items,
+    domains_with_recorded_gaps,
+    load_gaps,
+    record_gaps,
+)
 from src.elt.silver import DOMAIN_TRANSFORMS, refresh_silver_commodity, refresh_silver_country
 from src.elt.structural import create_indexes, create_views
 from src.validation.silver_schemas import validate_silver
@@ -53,37 +60,87 @@ logger = logging.getLogger(__name__)
 NO_DOMAINS = "none"
 
 
-def _determine_status(coverage: DomainCoverage, bronze_rows: int) -> str:
-    """success: real data, and everything requested came back. partial: some
-    data landed but a requested element or item did not. failed: nothing
-    landed at all.
+def _determine_status(
+    coverage: DomainCoverage, bronze_rows: int, gaps: Sequence[ScopeGap] = ()
+) -> str:
+    """success: real data, and every shortfall explained. partial: something
+    requested did not arrive and could not be shown to be a source gap.
+    failed: nothing landed at all.
 
-    A shortfall against the *requested* item count counts as partial even
-    when the missing items are a legitimate source gap (a discontinued crop,
-    an indicator FAO does not publish bilaterally). Marking those `success`
-    hid a real defect once already -- CAHD returned 2 of its 8 requested
-    items, including the Cost of a Healthy Diet the project's affordability
-    analysis is built on, and the run still reported success. Which case a
-    given shortfall is belongs in the report
-    (`data_quality/variable_scope.csv`), not in a status that silently
-    rounds it up.
+    A shortfall is only forgiven once it has been *established* live as
+    genuine source behaviour -- the item is absent from FAO's own dimension,
+    or has no observation in the requested window, or none at all (see
+    ``src/elt/scope_gaps.py``). Anything unproven still reads `partial`,
+    because the one API failure mode that cost this project real data was
+    silent: CAHD returned 2 of its 8 requested items, including the Cost of a
+    Healthy Diet the whole affordability analysis rests on, and the run
+    reported success.
     """
     if bronze_rows == 0:
         return "failed"
     if coverage.missing_elements:
         return "partial"
-    if (
-        coverage.requested_item_count is not None
-        and coverage.retrieved_item_count < coverage.requested_item_count
-    ):
+    if any(gap.counts_against_status for gap in gaps):
         return "partial"
     return "success"
+
+
+def _classify_gaps(
+    client: FAOSTATClient, domain: str, spec, coverage: DomainCoverage, pipeline_cfg: PipelineConfig
+) -> list[ScopeGap]:
+    """Establish why anything requested is missing. A failure to classify is
+    never treated as "explained" -- it degrades to `unverified`, which keeps
+    counting against the domain's status."""
+    missing = sorted(set(coverage.requested_item_codes) - set(coverage.retrieved_item_codes))
+    to_classify = missing + list(coverage.items_absent_from_dimension)
+    if not to_classify:
+        return []
+    try:
+        return classify_missing_items(
+            client,
+            domain,
+            missing_codes=to_classify,
+            dimension_codes=set(coverage.dimension_item_codes),
+            retrieved_codes=set(coverage.retrieved_item_codes),
+            start_year=pipeline_cfg.start_year,
+            end_year=pipeline_cfg.end_year,
+            bilateral=spec.bilateral,
+        )
+    except Exception as exc:  # noqa: BLE001 - an unclassifiable gap must not read as explained
+        logger.warning("Domain %s: could not classify missing items %s: %s", domain, to_classify, exc)
+        return [ScopeGap(domain, code, "unverified", f"classification failed: {exc}") for code in to_classify]
 
 
 def _recorded_runs(engine: Engine, pipeline_run_id: str) -> pd.DataFrame:
     """Every ``etl_runs`` row for this run id, including domains recorded by
     an earlier invocation of the same (resumed) run."""
     return pd.read_sql(select(etl_runs).where(etl_runs.c.pipeline_run_id == pipeline_run_id), engine)
+
+
+def _backfill_missing_gap_records(
+    client: FAOSTATClient, engine: Engine, run_id: str, pipeline_cfg: PipelineConfig
+) -> None:
+    """Work out the scope gaps for any domain in this run that has none
+    recorded yet.
+
+    A run that touches only some domains would otherwise leave the report
+    showing that slice's gaps alone -- which is how a regenerated report came
+    to list TM's 8 untracked commodities and silently drop QCL 839 and
+    GT 6966. Everything needed is cheap: the requested scope comes from
+    config, the retrieved codes from a ``SELECT DISTINCT`` over Bronze, and
+    only genuinely missing items are ever probed.
+    """
+    already = domains_with_recorded_gaps(engine, run_id)
+    for domain, spec in pipeline_cfg.domains.items():
+        if domain in already:
+            continue
+        try:
+            result = coverage_for_existing_bronze(client, engine, domain, spec, pipeline_cfg)
+            if result.bronze_rows == 0:
+                continue  # nothing was ingested; there is no shortfall to explain
+            record_gaps(engine, run_id, domain, _classify_gaps(client, domain, spec, result.coverage, pipeline_cfg))
+        except Exception:  # noqa: BLE001 - a reporting gap must not fail the run
+            logger.exception("Could not work out scope gaps for domain %s", domain)
 
 
 def run_pipeline(
@@ -155,7 +212,9 @@ def run_pipeline(
                 silver_rows, conflicts = DOMAIN_TRANSFORMS[domain](engine, harmonisation)
                 logger.info("Silver[%s]: %d rows written", domain, silver_rows)
                 all_conflicts[domain] = conflicts
-                status = _determine_status(extract_result.coverage, extract_result.bronze_rows)
+                gaps = _classify_gaps(client, domain, spec, extract_result.coverage, pipeline_cfg)
+                record_gaps(engine, run_id, domain, gaps)
+                status = _determine_status(extract_result.coverage, extract_result.bronze_rows, gaps)
                 run_results[domain] = DomainRunResult(
                     domain=domain, priority=spec.priority, status=status,
                     coverage=extract_result.coverage, rows_received=extract_result.rows_received,
@@ -174,7 +233,13 @@ def run_pipeline(
             # mid-Silver on the 2026-09-06 run) must not erase the audit
             # trail for domains that already succeeded.
             record_run(engine, run_id, run_results[domain])
+            # Fold this domain's writes back into the database before the next
+            # one starts: a large Silver rewrite leaves a WAL of comparable
+            # size, and on a near-full disk several of those in a row is how a
+            # run ends up killed (see src/database/connection.py).
+            checkpoint_wal(engine)
 
+        _backfill_missing_gap_records(client, engine, run_id, pipeline_cfg)
         refresh_silver_country(engine, harmonisation, area_reference)
         refresh_silver_commodity(engine, harmonisation)
 
@@ -186,7 +251,10 @@ def run_pipeline(
     create_views(engine)
 
     validation_report = validate_silver(engine, pipeline_cfg, harmonisation)
-    generate_all(engine, run_id, pipeline_cfg, harmonisation, all_conflicts, validation_report.to_rows())
+    generate_all(
+        engine, run_id, pipeline_cfg, harmonisation, all_conflicts,
+        validation_report.to_rows(), load_gaps(engine, run_id),
+    )
 
     # Judged on every domain recorded under this run id, not only the ones
     # this invocation touched, so a resumed run still reports the whole of
