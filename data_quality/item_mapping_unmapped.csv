@@ -1,0 +1,88 @@
+side,item_code,item,reason_class,fao_group,detail
+QCL,328,"Seed cotton, unginned",unmapped,,no FBS item lists this crop in its FAO default composition; kcal_per_100g not derivable from FBS
+QCL,677,Hop cones,unmapped,,no FBS item lists this crop in its FAO default composition; kcal_per_100g not derivable from FBS
+QCL,748,"Peppermint, spearmint",unmapped,,no FBS item lists this crop in its FAO default composition; kcal_per_100g not derivable from FBS
+QCL,754,"Pyrethrum, dried flowers",unmapped,,no FBS item lists this crop in its FAO default composition; kcal_per_100g not derivable from FBS
+QCL,771,"Flax, raw or retted",unmapped,,no FBS item lists this crop in its FAO default composition; kcal_per_100g not derivable from FBS
+QCL,777,"True hemp, raw or retted",unmapped,,no FBS item lists this crop in its FAO default composition; kcal_per_100g not derivable from FBS
+QCL,780,"Jute, raw or retted",unmapped,,no FBS item lists this crop in its FAO default composition; kcal_per_100g not derivable from FBS
+QCL,782,"Kenaf, and other textile bast fibres, raw or retted",unmapped,,no FBS item lists this crop in its FAO default composition; kcal_per_100g not derivable from FBS
+QCL,788,"Ramie, raw or retted",unmapped,,no FBS item lists this crop in its FAO default composition; kcal_per_100g not derivable from FBS
+QCL,789,"Sisal, raw",unmapped,,no FBS item lists this crop in its FAO default composition; kcal_per_100g not derivable from FBS
+QCL,800,"Agave fibres, raw, n.e.c.",unmapped,,no FBS item lists this crop in its FAO default composition; kcal_per_100g not derivable from FBS
+QCL,809,"Abaca, manila hemp, raw",unmapped,,no FBS item lists this crop in its FAO default composition; kcal_per_100g not derivable from FBS
+QCL,813,"Coir, raw",unmapped,,no FBS item lists this crop in its FAO default composition; kcal_per_100g not derivable from FBS
+QCL,821,"Other fibre crops, raw, n.e.c.",unmapped,,no FBS item lists this crop in its FAO default composition; kcal_per_100g not derivable from FBS
+QCL,826,Unmanufactured tobacco,unmapped,,no FBS item lists this crop in its FAO default composition; kcal_per_100g not derivable from FBS
+QCL,836,Natural rubber in primary forms,unmapped,,no FBS item lists this crop in its FAO default composition; kcal_per_100g not derivable from FBS
+FBS,2541,Sugar non-centrifugal,no_qcl_crop_member,Vegetal Products,composition FCL codes (none a QCL crop): 163
+FBS,2542,Sugar (Raw Equivalent),no_qcl_crop_member,Vegetal Products,"composition FCL codes (none a QCL crop): 158, 159, 162, 164, 168, 171"
+FBS,2559,Cottonseed,no_qcl_crop_member,Vegetal Products,composition FCL codes (none a QCL crop): 329
+FBS,2571,Soyabean Oil,no_qcl_crop_member,Vegetal Products,composition FCL codes (none a QCL crop): 237
+FBS,2572,Groundnut Oil,no_qcl_crop_member,Vegetal Products,composition FCL codes (none a QCL crop): 244
+FBS,2573,Sunflowerseed Oil,no_qcl_crop_member,Vegetal Products,composition FCL codes (none a QCL crop): 268
+FBS,2574,Rape and Mustard Oil,no_qcl_crop_member,Vegetal Products,"composition FCL codes (none a QCL crop): 271, 293"
+FBS,2575,Cottonseed Oil,no_qcl_crop_member,Vegetal Products,composition FCL codes (none a QCL crop): 331
+FBS,2576,Palmkernel Oil,no_qcl_crop_member,Vegetal Products,composition FCL codes (none a QCL crop): 258
+FBS,2577,Palm Oil,no_qcl_crop_member,Vegetal Products,"composition FCL codes (none a QCL crop): 257, 1276, 1277"
+FBS,2578,Coconut Oil,no_qcl_crop_member,Vegetal Products,composition FCL codes (none a QCL crop): 252
+FBS,2579,Sesameseed Oil,no_qcl_crop_member,Vegetal Products,composition FCL codes (none a QCL crop): 290
+FBS,2580,Olive Oil,no_qcl_crop_member,Vegetal Products,"composition FCL codes (none a QCL crop): 261, 274"
+FBS,2581,Ricebran Oil,no_qcl_crop_member,Vegetal Products,composition FCL codes (none a QCL crop): 36
+FBS,2582,Maize Germ Oil,no_qcl_crop_member,Vegetal Products,composition FCL codes (none a QCL crop): 60
+FBS,2586,"Oilcrops Oil, Other",no_qcl_crop_member,Vegetal Products,"composition FCL codes (none a QCL crop): 264, 266, 276, 278, 281, 297, 306, 307 ..."
+FBS,2655,Wine,no_qcl_crop_member,Vegetal Products,"composition FCL codes (none a QCL crop): 564, 565"
+FBS,2656,Beer,no_qcl_crop_member,Vegetal Products,composition FCL codes (none a QCL crop): 51
+FBS,2657,"Beverages, Fermented",no_qcl_crop_member,Vegetal Products,"composition FCL codes (none a QCL crop): 26, 39, 66, 82, 86, 517"
+FBS,2658,"Beverages, Alcoholic",no_qcl_crop_member,Vegetal Products,composition FCL codes (none a QCL crop): 634
+FBS,2659,"Alcohol, Non-Food",no_qcl_crop_member,Vegetal Products,composition FCL codes (none a QCL crop): 632
+FBS,2680,Infant food,no_qcl_crop_member,Vegetal Products,composition FCL codes (none a QCL crop): 109
+FBS,2731,Bovine Meat,no_qcl_crop_member,Animal Products,"composition FCL codes (none a QCL crop): 867, 870, 872, 873, 874, 875, 876, 877 ..."
+FBS,2732,Mutton & Goat Meat,no_qcl_crop_member,Animal Products,"composition FCL codes (none a QCL crop): 977, 1017"
+FBS,2733,Pigmeat,no_qcl_crop_member,Animal Products,"composition FCL codes (none a QCL crop): 1035, 1038, 1039, 1041, 1042"
+FBS,2734,Poultry Meat,no_qcl_crop_member,Animal Products,"composition FCL codes (none a QCL crop): 1058, 1060, 1061, 1069, 1073, 1080"
+FBS,2735,"Meat, Other",no_qcl_crop_member,Animal Products,"composition FCL codes (none a QCL crop): 1089, 1097, 1108, 1111, 1127, 1141, 1151, 1158 ..."
+FBS,2736,"Offals, Edible",no_qcl_crop_member,Animal Products,"composition FCL codes (none a QCL crop): 868, 878, 948, 978, 1018, 1036, 1059, 1074 ..."
+FBS,2737,"Fats, Animals, Raw",no_qcl_crop_member,Animal Products,"composition FCL codes (none a QCL crop): 869, 871, 949, 979, 994, 1019, 1037, 1040 ..."
+FBS,2740,"Butter, Ghee",no_qcl_crop_member,Animal Products,"composition FCL codes (none a QCL crop): 886, 887, 952, 953, 983, 1022"
+FBS,2743,Cream,no_qcl_crop_member,Animal Products,composition FCL codes (none a QCL crop): 885
+FBS,2744,Eggs,no_qcl_crop_member,Animal Products,"composition FCL codes (none a QCL crop): 916, 1062, 1063, 1064, 1091"
+FBS,2745,Honey,no_qcl_crop_member,Vegetal Products,composition FCL codes (none a QCL crop): 1182
+FBS,2761,Freshwater Fish,no_qcl_crop_member,Animal Products,"composition FCL codes (none a QCL crop): 1501, 1502, 1503, 1504, 1505, 1506, 1507, 1508"
+FBS,2762,Demersal Fish,no_qcl_crop_member,Animal Products,"composition FCL codes (none a QCL crop): 1514, 1515, 1516, 1517, 1518, 1519, 1520, 1521"
+FBS,2763,Pelagic Fish,no_qcl_crop_member,Animal Products,"composition FCL codes (none a QCL crop): 1527, 1528, 1529, 1530, 1531, 1532, 1533, 1534"
+FBS,2764,"Marine Fish, Other",no_qcl_crop_member,Animal Products,"composition FCL codes (none a QCL crop): 1540, 1541, 1542, 1543, 1544, 1545, 1546, 1547"
+FBS,2765,Crustaceans,no_qcl_crop_member,Animal Products,"composition FCL codes (none a QCL crop): 1553, 1554, 1555, 1556, 1557, 1558"
+FBS,2766,Cephalopods,no_qcl_crop_member,Animal Products,"composition FCL codes (none a QCL crop): 1570, 1571, 1572, 1573, 1574, 1575"
+FBS,2767,"Molluscs, Other",no_qcl_crop_member,Animal Products,"composition FCL codes (none a QCL crop): 1562, 1563, 1564, 1565, 1566"
+FBS,2768,"Meat, Aquatic Mammals",no_qcl_crop_member,Animal Products,"composition FCL codes (none a QCL crop): 1580, 1583"
+FBS,2769,"Aquatic Animals, Others",no_qcl_crop_member,Animal Products,"composition FCL codes (none a QCL crop): 1587, 1588, 1589, 1590"
+FBS,2775,Aquatic Plants,no_qcl_crop_member,Animal Products,"composition FCL codes (none a QCL crop): 1594, 1595, 1596"
+FBS,2781,"Fish, Body Oil",no_qcl_crop_member,Animal Products,"composition FCL codes (none a QCL crop): 1509, 1522, 1535, 1548, 1582"
+FBS,2782,"Fish, Liver Oil",no_qcl_crop_member,Animal Products,"composition FCL codes (none a QCL crop): 1510, 1523, 1536, 1549"
+FBS,2848,Milk - Excluding Butter,no_qcl_crop_member,Animal Products,"composition FCL codes (none a QCL crop): 882, 888, 889, 890, 891, 892, 893, 894 ..."
+FBS,2899,Miscellaneous,no_composition,Vegetal Products,FAO publishes no default composition
+FBS,2901,Grand Total,aggregate,,FAO itemgroup rollup of other FBS items
+FBS,2903,Vegetal Products,aggregate,,FAO itemgroup rollup of other FBS items
+FBS,2905,Cereals - Excluding Beer,aggregate,,FAO itemgroup rollup of other FBS items
+FBS,2907,Starchy Roots,aggregate,,FAO itemgroup rollup of other FBS items
+FBS,2908,Sugar Crops,aggregate,,FAO itemgroup rollup of other FBS items
+FBS,2909,Sugar & Sweeteners,aggregate,,FAO itemgroup rollup of other FBS items
+FBS,2911,Pulses,aggregate,,FAO itemgroup rollup of other FBS items
+FBS,2912,Treenuts,aggregate,,FAO itemgroup rollup of other FBS items
+FBS,2913,Oilcrops,aggregate,,FAO itemgroup rollup of other FBS items
+FBS,2914,Vegetable Oils,aggregate,,FAO itemgroup rollup of other FBS items
+FBS,2918,Vegetables,aggregate,,FAO itemgroup rollup of other FBS items
+FBS,2919,Fruits - Excluding Wine,aggregate,,FAO itemgroup rollup of other FBS items
+FBS,2922,Stimulants,aggregate,,FAO itemgroup rollup of other FBS items
+FBS,2923,Spices,aggregate,,FAO itemgroup rollup of other FBS items
+FBS,2924,Alcoholic Beverages,aggregate,,FAO itemgroup rollup of other FBS items
+FBS,2928,Miscellaneous,aggregate,,FAO itemgroup rollup of other FBS items
+FBS,2941,Animal Products,aggregate,,FAO itemgroup rollup of other FBS items
+FBS,2943,Meat,aggregate,,FAO itemgroup rollup of other FBS items
+FBS,2945,Offals,aggregate,,FAO itemgroup rollup of other FBS items
+FBS,2946,Animal fats,aggregate,,FAO itemgroup rollup of other FBS items
+FBS,2948,Milk - Excluding Butter,aggregate,,FAO itemgroup rollup of other FBS items
+FBS,2949,Eggs,aggregate,,FAO itemgroup rollup of other FBS items
+FBS,2960,"Fish, Seafood",aggregate,,FAO itemgroup rollup of other FBS items
+FBS,2961,"Aquatic Products, Other",aggregate,,FAO itemgroup rollup of other FBS items

@@ -55,6 +55,7 @@ foundations.
 | API client | `httpx`, `tenacity` (retries), `pydantic` (validation) |
 | Config & secrets | `pyyaml`, `pydantic-settings`, `python-dotenv` |
 | Storage | SQLite via `SQLAlchemy` Core |
+| Gold aggregation | `duckdb` over the attached SQLite file (memory-bounded; never loads a Silver table into pandas) |
 | Data handling | `pandas` |
 | Notebooks | `jupyter`, `nbclient` |
 | Testing | `pytest`, `respx` (mocked HTTP — no test needs live credentials) |
@@ -78,7 +79,7 @@ FAOSTAT API  →  BRONZE  →  SILVER  →  GOLD (Phase 3)
   "Africa" removed, duplicates resolved, units validated, country codes
   harmonised. **This is the layer to analyse.**
 - **Gold** — engineered features (crop diversity, supplier concentration, the
-  scores above). Not built yet.
+  scores above). In progress — see *Phase 3* below.
 
 Nine FAOSTAT datasets are ingested for **2014–2024**, all countries:
 
@@ -215,6 +216,23 @@ second run, or leaving a database browser open, will cause
 pgrep -fl "src.elt.pipeline"     # silence means it's safe to start
 ```
 
+## Phase 3 — Gold layer
+
+Built step by step; each step is one command and writes its evidence to
+`data_quality/` and `reports/`.
+
+```bash
+# Step 1: dim_item_mapping (QCL crop -> FBS commodity + kcal per 100 g)
+uv run python -m src.elt.item_mapping
+
+# Regenerate FAO's FBS item composition (needs API credentials; rarely needed)
+uv run python -m src.elt.fbs_composition
+```
+
+The mapping comes from FAO's own FBS item definitions (`config/fbs_item_composition.yaml`),
+never from matching names. Resource limits for every DuckDB session are in `config/gold.yaml`.
+Results: `reports/phase3_item_mapping.md`.
+
 ## Querying the data
 
 ```bash
@@ -241,7 +259,7 @@ Main tables to analyse: `silver_production`, `silver_trade`,
 |---|---|
 | 1 — FAOSTAT API client | ✅ Complete |
 | 2 — Bronze → Silver pipeline | ✅ Complete — all 9 datasets, ~10.5M cleaned rows, 0 validation failures |
-| 3 — Feature engineering | ⬜ Next |
+| 3 — Feature engineering (Gold) | 🟡 Step 1 of 5 done — `dim_item_mapping` |
 | 4 — Scoring (CFSS / SRS / LVG) | ⬜ |
 | 5 — Dashboard & shock simulator | ⬜ |
 

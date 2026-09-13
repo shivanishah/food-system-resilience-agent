@@ -1,0 +1,1978 @@
+_comment: Auto-derived by src/elt/fbs_composition.py from FAOSTAT FBS item definitions
+  ('Default composition:' descriptions) and the FBS itemgroup dimension. Member codes
+  are FAO Commodity List codes, shared with QCL primary crops. Regenerate by re-running
+  that module -- do not hand-edit.
+n_items: 123
+n_with_composition: 97
+items:
+- item_code: '2501'
+  item: Population
+  is_aggregate: false
+  parent_groups: []
+  composition: []
+- item_code: '2511'
+  item: Wheat and products
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2905'
+  composition:
+  - item_code: '15'
+    item: Wheat
+  - item_code: '16'
+    item: Flour, wheat
+  - item_code: '17'
+    item: Bran, wheat
+  - item_code: '18'
+    item: Macaroni
+  - item_code: '19'
+    item: Germ, wheat
+  - item_code: '20'
+    item: Bread
+  - item_code: '21'
+    item: Bulgur
+  - item_code: '22'
+    item: Pastry
+  - item_code: '23'
+    item: Starch, wheat
+  - item_code: '24'
+    item: Gluten, wheat
+  - item_code: '41'
+    item: Cereals, breakfast
+  - item_code: '110'
+    item: Wafers
+  - item_code: '114'
+    item: Mixes and doughs
+  - item_code: '115'
+    item: Food preparations, flour, malt extract
+- item_code: '2513'
+  item: Barley and products
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2905'
+  composition:
+  - item_code: '44'
+    item: Barley
+  - item_code: '45'
+    item: Barley, pot
+  - item_code: '46'
+    item: Barley, pearled
+  - item_code: '47'
+    item: Bran, barley
+  - item_code: '48'
+    item: Flour, barley and grits
+  - item_code: '49'
+    item: Malt
+  - item_code: '50'
+    item: Malt extract
+- item_code: '2514'
+  item: Maize and products
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2905'
+  composition:
+  - item_code: '56'
+    item: Maize
+  - item_code: '57'
+    item: Germ, maize
+  - item_code: '58'
+    item: Flour, maize
+  - item_code: '59'
+    item: Bran, maize
+  - item_code: '63'
+    item: Gluten, maize
+  - item_code: '64'
+    item: Starch, maize
+  - item_code: '846'
+    item: Feed and meal, gluten
+- item_code: '2515'
+  item: Rye and products
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2905'
+  composition:
+  - item_code: '71'
+    item: Rye
+  - item_code: '72'
+    item: Flour, rye
+  - item_code: '73'
+    item: Bran, rye
+- item_code: '2516'
+  item: Oats
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2905'
+  composition:
+  - item_code: '75'
+    item: Oats
+  - item_code: '76'
+    item: Oats rolled
+  - item_code: '77'
+    item: Bran, oats
+- item_code: '2517'
+  item: Millet and products
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2905'
+  composition:
+  - item_code: '79'
+    item: Millet
+  - item_code: '80'
+    item: Flour, millet
+  - item_code: '81'
+    item: Bran, millet
+- item_code: '2518'
+  item: Sorghum and products
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2905'
+  composition:
+  - item_code: '83'
+    item: Sorghum
+  - item_code: '84'
+    item: Flour, sorghum
+  - item_code: '85'
+    item: Bran, sorghum
+- item_code: '2520'
+  item: Cereals, other
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2905'
+  composition:
+  - item_code: '68'
+    item: Popcorn
+  - item_code: '89'
+    item: Buckwheat
+  - item_code: '90'
+    item: Flour, buckwheat
+  - item_code: '91'
+    item: Bran, buckwheat
+  - item_code: '92'
+    item: Quinoa
+  - item_code: '94'
+    item: Fonio
+  - item_code: '95'
+    item: Flour, fonio
+  - item_code: '96'
+    item: Bran, fonio
+  - item_code: '97'
+    item: Triticale
+  - item_code: '98'
+    item: Flour, triticale
+  - item_code: '99'
+    item: Bran, triticale
+  - item_code: '101'
+    item: Canary seed
+  - item_code: '103'
+    item: Grain, mixed
+  - item_code: '104'
+    item: Flour, mixed grain
+  - item_code: '105'
+    item: Bran, mixed grains
+  - item_code: '108'
+    item: Cereals, nes
+  - item_code: '111'
+    item: Flour, cereals
+  - item_code: '112'
+    item: Bran, cereals nes
+  - item_code: '113'
+    item: Cereal preparations, nes
+- item_code: '2531'
+  item: Potatoes and products
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2907'
+  composition:
+  - item_code: '116'
+    item: Potatoes
+  - item_code: '117'
+    item: Flour, potatoes
+  - item_code: '118'
+    item: Potatoes, frozen
+  - item_code: '119'
+    item: Starch, potatoes
+  - item_code: '121'
+    item: Tapioca, potatoes
+- item_code: '2532'
+  item: Cassava and products
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2907'
+  composition:
+  - item_code: '125'
+    item: Cassava
+  - item_code: '126'
+    item: Flour, cassava
+  - item_code: '127'
+    item: Tapioca, cassava
+  - item_code: '128'
+    item: Cassava dried
+  - item_code: '129'
+    item: Starch, cassava
+- item_code: '2533'
+  item: Sweet potatoes
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2907'
+  composition:
+  - item_code: '122'
+    item: Sweet potatoes
+- item_code: '2534'
+  item: Roots, Other
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2907'
+  composition:
+  - item_code: '135'
+    item: Yautia (cocoyam)
+  - item_code: '136'
+    item: Taro (cocoyam)
+  - item_code: '149'
+    item: Roots and tubers, nes
+  - item_code: '150'
+    item: Flour, roots and tubers nes
+  - item_code: '151'
+    item: Roots and tubers dried
+- item_code: '2535'
+  item: Yams
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2907'
+  composition:
+  - item_code: '137'
+    item: Yams
+- item_code: '2536'
+  item: Sugar cane
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2908'
+  composition:
+  - item_code: '156'
+    item: Sugar cane
+- item_code: '2537'
+  item: Sugar beet
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2908'
+  composition:
+  - item_code: '157'
+    item: Sugar beet
+- item_code: '2541'
+  item: Sugar non-centrifugal
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2909'
+  composition:
+  - item_code: '163'
+    item: Sugar non-centrifugal
+- item_code: '2542'
+  item: Sugar (Raw Equivalent)
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2909'
+  composition:
+  - item_code: '158'
+    item: Sugar, cane, raw, centrifugal
+  - item_code: '159'
+    item: Sugar, beet, raw, centrifugal
+  - item_code: '162'
+    item: Sugar Raw Centrifugal
+  - item_code: '164'
+    item: Sugar refined
+  - item_code: '168'
+    item: Sugar confectionery
+  - item_code: '171'
+    item: Sugar flavoured
+- item_code: '2543'
+  item: Sweeteners, Other
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2909'
+  composition:
+  - item_code: '154'
+    item: Fructose chemically pure
+  - item_code: '155'
+    item: Maltose chemically pure
+  - item_code: '160'
+    item: Maple sugar and syrups
+  - item_code: '161'
+    item: Sugar crops, nes
+  - item_code: '165'
+    item: Molasses
+  - item_code: '166'
+    item: Fructose and syrup, other
+  - item_code: '167'
+    item: Sugar, nes
+  - item_code: '172'
+    item: Glucose and dextrose
+  - item_code: '173'
+    item: Lactose
+  - item_code: '175'
+    item: Isoglucose
+  - item_code: '633'
+    item: Beverages, non alcoholic
+- item_code: '2546'
+  item: Beans
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2911'
+  composition:
+  - item_code: '176'
+    item: Beans, dry
+- item_code: '2547'
+  item: Peas
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2911'
+  composition:
+  - item_code: '187'
+    item: Peas, dry
+- item_code: '2549'
+  item: Pulses, Other and products
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2911'
+  composition:
+  - item_code: '181'
+    item: Broad beans, horse beans, dry
+  - item_code: '191'
+    item: Chick peas
+  - item_code: '195'
+    item: Cow peas, dry
+  - item_code: '197'
+    item: Pigeon peas
+  - item_code: '201'
+    item: Lentils
+  - item_code: '203'
+    item: Bambara beans
+  - item_code: '205'
+    item: Vetches
+  - item_code: '210'
+    item: Lupins
+  - item_code: '211'
+    item: Pulses, nes
+  - item_code: '212'
+    item: Flour, pulses
+  - item_code: '213'
+    item: Bran, pulses
+- item_code: '2551'
+  item: Nuts and products
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2912'
+  composition:
+  - item_code: '216'
+    item: Brazil nuts, with shell
+  - item_code: '217'
+    item: Cashew nuts, with shell
+  - item_code: '220'
+    item: Chestnut
+  - item_code: '221'
+    item: Almonds, with shell
+  - item_code: '222'
+    item: Walnuts, with shell
+  - item_code: '223'
+    item: Pistachios
+  - item_code: '224'
+    item: Kola nuts
+  - item_code: '225'
+    item: Hazelnuts, with shell
+  - item_code: '226'
+    item: Areca nuts
+  - item_code: '229'
+    item: Brazil nuts, shelled
+  - item_code: '230'
+    item: Cashew nuts, shelled
+  - item_code: '231'
+    item: Almonds shelled
+  - item_code: '232'
+    item: Walnuts, shelled
+  - item_code: '233'
+    item: Hazelnuts, shelled
+  - item_code: '234'
+    item: Nuts, nes
+  - item_code: '235'
+    item: Nuts, prepared (exc. groundnuts)
+- item_code: '2552'
+  item: Groundnuts
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2913'
+  composition:
+  - item_code: '242'
+    item: Groundnuts, with shell
+  - item_code: '243'
+    item: Groundnuts, shelled
+  - item_code: '246'
+    item: Groundnuts, prepared
+  - item_code: '247'
+    item: Peanut butter
+- item_code: '2555'
+  item: Soyabeans
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2913'
+  composition:
+  - item_code: '236'
+    item: Soybeans
+  - item_code: '239'
+    item: Soya sauce
+  - item_code: '240'
+    item: Soya paste
+  - item_code: '241'
+    item: Soya curd
+- item_code: '2557'
+  item: Sunflower seed
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2913'
+  composition:
+  - item_code: '267'
+    item: Sunflower seed
+- item_code: '2558'
+  item: Rape and Mustardseed
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2913'
+  composition:
+  - item_code: '270'
+    item: Rapeseed
+  - item_code: '292'
+    item: Mustard seed
+  - item_code: '295'
+    item: Flour, mustard
+- item_code: '2559'
+  item: Cottonseed
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2913'
+  composition:
+  - item_code: '329'
+    item: Cottonseed
+- item_code: '2560'
+  item: Coconuts - Incl Copra
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2913'
+  composition:
+  - item_code: '249'
+    item: Coconuts
+  - item_code: '250'
+    item: Coconuts, desiccated
+  - item_code: '251'
+    item: Copra
+- item_code: '2561'
+  item: Sesame seed
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2913'
+  composition:
+  - item_code: '289'
+    item: Sesame seed
+- item_code: '2562'
+  item: Palm kernels
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2913'
+  composition:
+  - item_code: '254'
+    item: Oil, palm fruit
+  - item_code: '256'
+    item: Palm kernels
+- item_code: '2563'
+  item: Olives (including preserved)
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2913'
+  composition:
+  - item_code: '260'
+    item: Olives
+  - item_code: '262'
+    item: Olives preserved
+- item_code: '2570'
+  item: Oilcrops, Other
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2913'
+  composition:
+  - item_code: '263'
+    item: Karite nuts (sheanuts)
+  - item_code: '265'
+    item: Castor oil seed
+  - item_code: '275'
+    item: Tung nuts
+  - item_code: '277'
+    item: Jojoba seed
+  - item_code: '280'
+    item: Safflower seed
+  - item_code: '296'
+    item: Poppy seed
+  - item_code: '299'
+    item: Melonseed
+  - item_code: '305'
+    item: Tallowtree seed
+  - item_code: '310'
+    item: Kapok fruit
+  - item_code: '311'
+    item: Kapokseed in shell
+  - item_code: '312'
+    item: Kapokseed shelled
+  - item_code: '333'
+    item: Linseed
+  - item_code: '336'
+    item: Hempseed
+  - item_code: '339'
+    item: Oilseeds nes
+  - item_code: '343'
+    item: Flour, oilseeds
+- item_code: '2571'
+  item: Soyabean Oil
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2914'
+  composition:
+  - item_code: '237'
+    item: Oil, soybean
+- item_code: '2572'
+  item: Groundnut Oil
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2914'
+  composition:
+  - item_code: '244'
+    item: Oil, groundnut
+- item_code: '2573'
+  item: Sunflowerseed Oil
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2914'
+  composition:
+  - item_code: '268'
+    item: Oil, sunflower
+- item_code: '2574'
+  item: Rape and Mustard Oil
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2914'
+  composition:
+  - item_code: '271'
+    item: Oil, rapeseed
+  - item_code: '293'
+    item: Oil, mustard
+- item_code: '2575'
+  item: Cottonseed Oil
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2914'
+  composition:
+  - item_code: '331'
+    item: Oil, cottonseed
+- item_code: '2576'
+  item: Palmkernel Oil
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2914'
+  composition:
+  - item_code: '258'
+    item: Oil, palm kernel
+- item_code: '2577'
+  item: Palm Oil
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2914'
+  composition:
+  - item_code: '257'
+    item: Oil, palm
+  - item_code: '1276'
+    item: Fatty acids
+  - item_code: '1277'
+    item: Fatty substance residues
+- item_code: '2578'
+  item: Coconut Oil
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2914'
+  composition:
+  - item_code: '252'
+    item: Oil, coconut (copra)
+- item_code: '2579'
+  item: Sesameseed Oil
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2914'
+  composition:
+  - item_code: '290'
+    item: Oil, sesame
+- item_code: '2580'
+  item: Olive Oil
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2914'
+  composition:
+  - item_code: '261'
+    item: Oil, olive, virgin
+  - item_code: '274'
+    item: Oil, olive residues
+- item_code: '2581'
+  item: Ricebran Oil
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2914'
+  composition:
+  - item_code: '36'
+    item: Oil, rice bran
+- item_code: '2582'
+  item: Maize Germ Oil
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2914'
+  composition:
+  - item_code: '60'
+    item: Oil, maize
+- item_code: '2586'
+  item: Oilcrops Oil, Other
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2914'
+  composition:
+  - item_code: '264'
+    item: Butter of karite nuts
+  - item_code: '266'
+    item: Oil, castor beans
+  - item_code: '276'
+    item: Oil, tung nuts
+  - item_code: '278'
+    item: Oil, jojoba
+  - item_code: '281'
+    item: Oil, safflower
+  - item_code: '297'
+    item: Oil, poppy
+  - item_code: '306'
+    item: Vegetable tallow
+  - item_code: '307'
+    item: Oil, stillingia
+  - item_code: '313'
+    item: Oil, kapok
+  - item_code: '334'
+    item: Oil, linseed
+  - item_code: '337'
+    item: Oil, hempseed
+  - item_code: '340'
+    item: Oil, vegetable origin nes
+  - item_code: '664'
+    item: Cocoa, butter
+  - item_code: '1241'
+    item: Margarine, liquid
+  - item_code: '1242'
+    item: Margarine, short
+  - item_code: '1273'
+    item: Castor oil, hydrogenated (opal wax)
+  - item_code: '1274'
+    item: Oil, boiled etc
+  - item_code: '1275'
+    item: Oil, hydrogenated
+- item_code: '2601'
+  item: Tomatoes and products
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2918'
+  composition:
+  - item_code: '388'
+    item: Tomatoes
+  - item_code: '389'
+    item: Juice, tomato, concentrated
+  - item_code: '390'
+    item: Juice, tomato
+  - item_code: '391'
+    item: Tomatoes, paste
+  - item_code: '392'
+    item: Tomatoes, peeled
+- item_code: '2602'
+  item: Onions
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2918'
+  composition:
+  - item_code: '403'
+    item: Onions, dry
+- item_code: '2605'
+  item: Vegetables, other
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2918'
+  composition:
+  - item_code: '358'
+    item: Cabbages and other brassicas
+  - item_code: '366'
+    item: Artichokes
+  - item_code: '367'
+    item: Asparagus
+  - item_code: '372'
+    item: Lettuce and chicory
+  - item_code: '373'
+    item: Spinach
+  - item_code: '378'
+    item: Cassava leaves
+  - item_code: '393'
+    item: Cauliflowers and broccoli
+  - item_code: '394'
+    item: Pumpkins, squash and gourds
+  - item_code: '397'
+    item: Cucumbers and gherkins
+  - item_code: '399'
+    item: Eggplants (aubergines)
+  - item_code: '401'
+    item: Chillies and peppers, green
+  - item_code: '402'
+    item: Onions, shallots, green
+  - item_code: '406'
+    item: Garlic
+  - item_code: '407'
+    item: Leeks, other alliaceous vegetables
+  - item_code: '414'
+    item: Beans, green
+  - item_code: '417'
+    item: Peas, green
+  - item_code: '420'
+    item: Vegetables, leguminous nes
+  - item_code: '423'
+    item: String beans
+  - item_code: '426'
+    item: Carrots and turnips
+  - item_code: '430'
+    item: Okra
+  - item_code: '446'
+    item: Maize, green
+  - item_code: '447'
+    item: Sweet corn frozen
+  - item_code: '448'
+    item: Sweet corn prep or preserved
+  - item_code: '449'
+    item: Mushrooms and truffles
+  - item_code: '450'
+    item: Mushrooms, dried
+  - item_code: '451'
+    item: Mushrooms, canned
+  - item_code: '459'
+    item: Chicory roots
+  - item_code: '461'
+    item: Carobs
+  - item_code: '463'
+    item: Vegetables, fresh nes
+  - item_code: '464'
+    item: Vegetables, dried nes
+  - item_code: '465'
+    item: Vegetables, canned nes
+  - item_code: '466'
+    item: Juice, vegetables nes
+  - item_code: '469'
+    item: Vegetables, dehydrated
+  - item_code: '471'
+    item: Vegetables in vinegar
+  - item_code: '472'
+    item: Vegetables, preserved nes
+  - item_code: '473'
+    item: Vegetables, frozen
+  - item_code: '474'
+    item: Vegetables, temporarily preserved
+  - item_code: '475'
+    item: Vegetables, preserved, frozen
+  - item_code: '476'
+    item: Vegetables, homogenized preparations
+  - item_code: '567'
+    item: Watermelons
+  - item_code: '568'
+    item: Melons, other (inc.cantaloupes)
+  - item_code: '658'
+    item: Coffee, substitutes containing coffee
+- item_code: '2611'
+  item: Oranges, Mandarines
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2919'
+  composition:
+  - item_code: '490'
+    item: Oranges
+  - item_code: '491'
+    item: Juice, orange, single strength
+  - item_code: '492'
+    item: Juice, orange, concentrated
+  - item_code: '495'
+    item: Tangerines, mandarins, clementines, satsumas
+  - item_code: '496'
+    item: Juice, tangerine
+- item_code: '2612'
+  item: Lemons, Limes and products
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2919'
+  composition:
+  - item_code: '497'
+    item: Lemons and limes
+  - item_code: '498'
+    item: Juice, lemon, single strength
+  - item_code: '499'
+    item: Juice, lemon, concentrated
+- item_code: '2613'
+  item: Grapefruit and products
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2919'
+  composition:
+  - item_code: '507'
+    item: Grapefruit (inc. pomelos)
+  - item_code: '509'
+    item: Juice, grapefruit
+  - item_code: '510'
+    item: Juice, grapefruit, concentrated
+- item_code: '2614'
+  item: Citrus, Other
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2919'
+  composition:
+  - item_code: '512'
+    item: Fruit, citrus nes
+  - item_code: '513'
+    item: Juice, citrus, single strength
+  - item_code: '514'
+    item: Juice, citrus, concentrated
+- item_code: '2615'
+  item: Bananas
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2919'
+  composition:
+  - item_code: '486'
+    item: Bananas
+- item_code: '2616'
+  item: Plantains
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2919'
+  composition:
+  - item_code: '489'
+    item: Plantains
+- item_code: '2617'
+  item: Apples and products
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2919'
+  composition:
+  - item_code: '515'
+    item: Apples
+  - item_code: '518'
+    item: Juice, apple, single strength
+  - item_code: '519'
+    item: Juice, apple, concentrated
+- item_code: '2618'
+  item: Pineapples and products
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2919'
+  composition:
+  - item_code: '574'
+    item: Pineapples
+  - item_code: '575'
+    item: Pineapples canned
+  - item_code: '576'
+    item: Juice, pineapple
+  - item_code: '580'
+    item: Juice, pineapple, concentrated
+- item_code: '2619'
+  item: Dates
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2919'
+  composition:
+  - item_code: '577'
+    item: Dates
+- item_code: '2620'
+  item: Grapes and products (excl wine)
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2919'
+  composition:
+  - item_code: '560'
+    item: Grapes
+  - item_code: '561'
+    item: Raisins
+  - item_code: '562'
+    item: Juice, grape
+  - item_code: '563'
+    item: Grapes, must
+- item_code: '2625'
+  item: Fruits, other
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2919'
+  composition:
+  - item_code: '521'
+    item: Pears
+  - item_code: '523'
+    item: Quinces
+  - item_code: '526'
+    item: Apricots
+  - item_code: '527'
+    item: Apricots, dry
+  - item_code: '530'
+    item: Cherries, sour
+  - item_code: '531'
+    item: Cherries
+  - item_code: '534'
+    item: Peaches and nectarines
+  - item_code: '536'
+    item: Plums and sloes
+  - item_code: '537'
+    item: Plums dried (prunes)
+  - item_code: '538'
+    item: Juice, plum, single strength
+  - item_code: '539'
+    item: Juice, plum, concentrated
+  - item_code: '541'
+    item: Fruit, stone nes
+  - item_code: '542'
+    item: Fruit, pome nes
+  - item_code: '544'
+    item: Strawberries
+  - item_code: '547'
+    item: Raspberries
+  - item_code: '549'
+    item: Gooseberries
+  - item_code: '550'
+    item: Currants
+  - item_code: '552'
+    item: Blueberries
+  - item_code: '554'
+    item: Cranberries
+  - item_code: '558'
+    item: Berries nes
+  - item_code: '567'
+    item: Watermelons
+  - item_code: '568'
+    item: Melons, other (inc.cantaloupes)
+  - item_code: '569'
+    item: Figs
+  - item_code: '570'
+    item: Figs dried
+  - item_code: '571'
+    item: Mangoes, mangosteens, guavas
+  - item_code: '572'
+    item: Avocados
+  - item_code: '583'
+    item: Juice, mango
+  - item_code: '587'
+    item: Persimmons
+  - item_code: '591'
+    item: Cashewapple
+  - item_code: '592'
+    item: Kiwi fruit
+  - item_code: '600'
+    item: Papayas
+  - item_code: '603'
+    item: Fruit, tropical fresh nes
+  - item_code: '604'
+    item: Fruit, tropical dried nes
+  - item_code: '619'
+    item: Fruit, fresh nes
+  - item_code: '620'
+    item: Fruit, dried nes
+  - item_code: '622'
+    item: Juice, fruit nes
+  - item_code: '623'
+    item: Fruit, prepared nes
+  - item_code: '624'
+    item: Flour, fruit
+  - item_code: '625'
+    item: Fruits, nuts, peel, sugar preserved
+  - item_code: '626'
+    item: Fruit, cooked, homogenized preparations
+- item_code: '2630'
+  item: Coffee and products
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2922'
+  composition:
+  - item_code: '656'
+    item: Coffee, green
+  - item_code: '657'
+    item: Coffee, roasted
+  - item_code: '659'
+    item: Coffee, extracts
+- item_code: '2633'
+  item: Cocoa Beans and products
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2922'
+  composition:
+  - item_code: '661'
+    item: Cocoa, beans
+  - item_code: '662'
+    item: Cocoa, paste
+  - item_code: '665'
+    item: Cocoa, powder & cake
+  - item_code: '666'
+    item: Chocolate products nes
+- item_code: '2635'
+  item: Tea (including mate)
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2922'
+  composition:
+  - item_code: '667'
+    item: Tea
+  - item_code: '671'
+    item: Maté
+  - item_code: '672'
+    item: Tea, mate extracts
+- item_code: '2640'
+  item: Pepper
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2923'
+  composition:
+  - item_code: '687'
+    item: Pepper (piper spp.)
+- item_code: '2641'
+  item: Pimento
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2923'
+  composition:
+  - item_code: '689'
+    item: Chillies and peppers, dry
+- item_code: '2642'
+  item: Cloves
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2923'
+  composition:
+  - item_code: '698'
+    item: Cloves
+- item_code: '2645'
+  item: Spices, Other
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2923'
+  composition:
+  - item_code: '692'
+    item: Vanilla
+  - item_code: '693'
+    item: Cinnamon (canella)
+  - item_code: '702'
+    item: Nutmeg, mace and cardamoms
+  - item_code: '711'
+    item: Anise, badian, fennel, coriander
+  - item_code: '720'
+    item: Ginger
+  - item_code: '723'
+    item: Spices, nes
+- item_code: '2655'
+  item: Wine
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2924'
+  composition:
+  - item_code: '564'
+    item: Wine
+  - item_code: '565'
+    item: Vermouths & similar
+- item_code: '2656'
+  item: Beer
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2924'
+  composition:
+  - item_code: '51'
+    item: Beer of barley
+- item_code: '2657'
+  item: Beverages, Fermented
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2924'
+  composition:
+  - item_code: '26'
+    item: Beverages, fermented wheat
+  - item_code: '39'
+    item: Beverages, fermented rice
+  - item_code: '66'
+    item: Beer of maize
+  - item_code: '82'
+    item: Beer of millet
+  - item_code: '86'
+    item: Beer of sorghum
+  - item_code: '517'
+    item: Cider etc
+- item_code: '2658'
+  item: Beverages, Alcoholic
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2924'
+  composition:
+  - item_code: '634'
+    item: Beverages, distilled alcoholic
+- item_code: '2659'
+  item: Alcohol, Non-Food
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2924'
+  composition:
+  - item_code: '632'
+    item: Alcohol non food
+- item_code: '2680'
+  item: Infant food
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2928'
+  composition:
+  - item_code: '109'
+    item: Infant food
+- item_code: '2731'
+  item: Bovine Meat
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2941'
+  - '2943'
+  composition:
+  - item_code: '867'
+    item: Meat, cattle
+  - item_code: '870'
+    item: Meat, cattle, boneless (beef & veal)
+  - item_code: '872'
+    item: Meat, beef, dried, salted, smoked
+  - item_code: '873'
+    item: Meat, extracts
+  - item_code: '874'
+    item: Meat, beef and veal sausages
+  - item_code: '875'
+    item: Meat, beef, preparations
+  - item_code: '876'
+    item: Meat, beef, canned
+  - item_code: '877'
+    item: Meat, homogenized preparations
+  - item_code: '947'
+    item: Meat, buffalo
+- item_code: '2732'
+  item: Mutton & Goat Meat
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2941'
+  - '2943'
+  composition:
+  - item_code: '977'
+    item: Meat, sheep
+  - item_code: '1017'
+    item: Meat, goat
+- item_code: '2733'
+  item: Pigmeat
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2941'
+  - '2943'
+  composition:
+  - item_code: '1035'
+    item: Meat, pig
+  - item_code: '1038'
+    item: Meat, pork
+  - item_code: '1039'
+    item: Bacon and ham
+  - item_code: '1041'
+    item: Meat, pig sausages
+  - item_code: '1042'
+    item: Meat, pig, preparations
+- item_code: '2734'
+  item: Poultry Meat
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2941'
+  - '2943'
+  composition:
+  - item_code: '1058'
+    item: Meat, chicken
+  - item_code: '1060'
+    item: Fat, liver prepared (foie gras)
+  - item_code: '1061'
+    item: Meat, chicken, canned
+  - item_code: '1069'
+    item: Meat, duck
+  - item_code: '1073'
+    item: Meat, goose and guinea fowl
+  - item_code: '1080'
+    item: Meat, turkey
+- item_code: '2735'
+  item: Meat, Other
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2941'
+  - '2943'
+  composition:
+  - item_code: '1089'
+    item: Meat, bird nes
+  - item_code: '1097'
+    item: Meat, horse
+  - item_code: '1108'
+    item: Meat, ass
+  - item_code: '1111'
+    item: Meat, mule
+  - item_code: '1127'
+    item: Meat, camel
+  - item_code: '1141'
+    item: Meat, rabbit
+  - item_code: '1151'
+    item: Meat, other rodents
+  - item_code: '1158'
+    item: Meat, other camelids
+  - item_code: '1163'
+    item: Meat, game
+  - item_code: '1164'
+    item: Meat, dried nes
+  - item_code: '1166'
+    item: Meat, nes
+  - item_code: '1172'
+    item: Meat, nes, preparations
+  - item_code: '1176'
+    item: Snails, not sea
+- item_code: '2736'
+  item: Offals, Edible
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2941'
+  - '2945'
+  composition:
+  - item_code: '868'
+    item: Offals, edible, cattle
+  - item_code: '878'
+    item: Liver prep.
+  - item_code: '948'
+    item: Offals, edible, buffaloes
+  - item_code: '978'
+    item: Offals, sheep,edible
+  - item_code: '1018'
+    item: Offals, edible, goats
+  - item_code: '1036'
+    item: Offals, pigs, edible
+  - item_code: '1059'
+    item: Offals, liver chicken
+  - item_code: '1074'
+    item: Offals, liver geese
+  - item_code: '1075'
+    item: Offals, liver duck
+  - item_code: '1081'
+    item: Offals, liver turkeys
+  - item_code: '1098'
+    item: Offals, horses
+  - item_code: '1128'
+    item: Offals, edible, camels
+  - item_code: '1159'
+    item: Offals, other camelids
+  - item_code: '1167'
+    item: Offals, nes
+- item_code: '2737'
+  item: Fats, Animals, Raw
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2941'
+  - '2946'
+  composition:
+  - item_code: '869'
+    item: Fat, cattle
+  - item_code: '871'
+    item: Fat, cattle butcher
+  - item_code: '949'
+    item: Fat, buffaloes
+  - item_code: '979'
+    item: Fat, sheep
+  - item_code: '994'
+    item: Grease incl. lanolin wool
+  - item_code: '1019'
+    item: Fat, goats
+  - item_code: '1037'
+    item: Fat, pigs
+  - item_code: '1040'
+    item: Fat, pig butcher
+  - item_code: '1043'
+    item: Lard
+  - item_code: '1065'
+    item: Fat, poultry
+  - item_code: '1066'
+    item: Fat, poultry, rendered
+  - item_code: '1129'
+    item: Fat, camels
+  - item_code: '1160'
+    item: Fat, other camelids
+  - item_code: '1168'
+    item: Oils, fats of animal nes
+  - item_code: '1221'
+    item: Lard stearine oil
+  - item_code: '1222'
+    item: Degras
+  - item_code: '1225'
+    item: Tallow
+  - item_code: '1243'
+    item: Fat, nes, prepared
+- item_code: '2740'
+  item: Butter, Ghee
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2941'
+  - '2946'
+  composition:
+  - item_code: '886'
+    item: Butter, cow milk
+  - item_code: '887'
+    item: Ghee, butteroil of cow milk
+  - item_code: '952'
+    item: Butter, buffalo milk
+  - item_code: '953'
+    item: Ghee, of buffalo milk
+  - item_code: '983'
+    item: Butter and ghee, sheep milk
+  - item_code: '1022'
+    item: Butter of goat mlk
+- item_code: '2743'
+  item: Cream
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2941'
+  - '2946'
+  composition:
+  - item_code: '885'
+    item: Cream fresh
+- item_code: '2744'
+  item: Eggs
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2941'
+  - '2949'
+  composition:
+  - item_code: '916'
+    item: Egg albumine
+  - item_code: '1062'
+    item: Eggs, hen, in shell
+  - item_code: '1063'
+    item: Eggs, liquid
+  - item_code: '1064'
+    item: Eggs, dried
+  - item_code: '1091'
+    item: Eggs, other bird, in shell
+- item_code: '2745'
+  item: Honey
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2909'
+  composition:
+  - item_code: '1182'
+    item: Honey, natural
+- item_code: '2761'
+  item: Freshwater Fish
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2941'
+  - '2960'
+  composition:
+  - item_code: '1501'
+    item: Frwtr Diad F
+  - item_code: '1502'
+    item: Frwtr Fz Whl
+  - item_code: '1503'
+    item: Frwtr Fillet
+  - item_code: '1504'
+    item: Frwtr Fz Flt
+  - item_code: '1505'
+    item: Frwtr Cured
+  - item_code: '1506'
+    item: Frwtr Canned
+  - item_code: '1507'
+    item: Frwtr Pr nes
+  - item_code: '1508'
+    item: Frwtr Meals
+- item_code: '2762'
+  item: Demersal Fish
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2941'
+  - '2960'
+  composition:
+  - item_code: '1514'
+    item: Dmrsl Fresh
+  - item_code: '1515'
+    item: Dmrsl Fz Whl
+  - item_code: '1516'
+    item: Dmrsl Fillet
+  - item_code: '1517'
+    item: Dmrsl Fz Flt
+  - item_code: '1518'
+    item: Dmrsl Cured
+  - item_code: '1519'
+    item: Dmrsl Canned
+  - item_code: '1520'
+    item: Dmrsl Pr nes
+  - item_code: '1521'
+    item: Dmrsl Meals
+- item_code: '2763'
+  item: Pelagic Fish
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2941'
+  - '2960'
+  composition:
+  - item_code: '1527'
+    item: Pelagic Frsh
+  - item_code: '1528'
+    item: Pelgc Fz Whl
+  - item_code: '1529'
+    item: Pelgc Fillet
+  - item_code: '1530'
+    item: Pelgc Fz Flt
+  - item_code: '1531'
+    item: Pelgc Cured
+  - item_code: '1532'
+    item: Pelgc Canned
+  - item_code: '1533'
+    item: Pelgc Pr nes
+  - item_code: '1534'
+    item: Pelgc Meals
+- item_code: '2764'
+  item: Marine Fish, Other
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2941'
+  - '2960'
+  composition:
+  - item_code: '1540'
+    item: Marine nes F
+  - item_code: '1541'
+    item: Marin Fz Whl
+  - item_code: '1542'
+    item: Marin Fillet
+  - item_code: '1543'
+    item: Marin Fz Flt
+  - item_code: '1544'
+    item: Marin Cured
+  - item_code: '1545'
+    item: Marin Canned
+  - item_code: '1546'
+    item: Marin Pr nes
+  - item_code: '1547'
+    item: Marin Meals
+- item_code: '2765'
+  item: Crustaceans
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2941'
+  - '2960'
+  composition:
+  - item_code: '1553'
+    item: Crstaceans F
+  - item_code: '1554'
+    item: Crstc Frozen
+  - item_code: '1555'
+    item: Crstc Cured
+  - item_code: '1556'
+    item: Crstc Canned
+  - item_code: '1557'
+    item: Crstc Pr nes
+  - item_code: '1558'
+    item: Crstc Meals
+- item_code: '2766'
+  item: Cephalopods
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2941'
+  - '2960'
+  composition:
+  - item_code: '1570'
+    item: Cephlp Fresh
+  - item_code: '1571'
+    item: Cphlp Frozen
+  - item_code: '1572'
+    item: Cphlp Cured
+  - item_code: '1573'
+    item: Cphlp Canned
+  - item_code: '1574'
+    item: Cphlp Pr nes
+  - item_code: '1575'
+    item: Cphlp Meals
+- item_code: '2767'
+  item: Molluscs, Other
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2941'
+  - '2960'
+  composition:
+  - item_code: '1562'
+    item: Mlluscs Frsh
+  - item_code: '1563'
+    item: Molsc Frozen
+  - item_code: '1564'
+    item: Molsc Cured
+  - item_code: '1565'
+    item: Molsc Canned
+  - item_code: '1566'
+    item: Molsc Meals
+- item_code: '2768'
+  item: Meat, Aquatic Mammals
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2941'
+  - '2961'
+  composition:
+  - item_code: '1580'
+    item: Aq M Meat
+  - item_code: '1583'
+    item: Aq M Prep Ns
+- item_code: '2769'
+  item: Aquatic Animals, Others
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2941'
+  - '2960'
+  composition:
+  - item_code: '1587'
+    item: Aqutc Anim F
+  - item_code: '1588'
+    item: Aq A Cured
+  - item_code: '1589'
+    item: Aquatic Animals Meals
+  - item_code: '1590'
+    item: Aq A Prep Ns
+- item_code: '2775'
+  item: Aquatic Plants
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2941'
+  - '2961'
+  composition:
+  - item_code: '1594'
+    item: Aquatic plants, fresh
+  - item_code: '1595'
+    item: Aquatic plants, dried
+  - item_code: '1596'
+    item: Aquatic plants, other preparations
+- item_code: '2781'
+  item: Fish, Body Oil
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2941'
+  - '2946'
+  composition:
+  - item_code: '1509'
+    item: Frwt Bdy Oil
+  - item_code: '1522'
+    item: Dmrs Bdy Oil
+  - item_code: '1535'
+    item: Pelg Bdy Oil
+  - item_code: '1548'
+    item: Marn Bdy Oil
+  - item_code: '1582'
+    item: Aq M Oils
+- item_code: '2782'
+  item: Fish, Liver Oil
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2941'
+  - '2946'
+  composition:
+  - item_code: '1510'
+    item: Frwt Lvr Oil
+  - item_code: '1523'
+    item: Demersal Liver Oils
+  - item_code: '1536'
+    item: Pelg Lvr Oil
+  - item_code: '1549'
+    item: Marine nes Liver Oils
+- item_code: '2807'
+  item: Rice and products
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2905'
+  composition:
+  - item_code: '27'
+    item: Rice, paddy
+  - item_code: '28'
+    item: Rice, husked
+  - item_code: '29'
+    item: Rice, milled/husked
+  - item_code: '31'
+    item: Rice, milled
+  - item_code: '32'
+    item: Rice, broken
+  - item_code: '33'
+    item: Gluten, rice
+  - item_code: '34'
+    item: Starch, rice
+  - item_code: '35'
+    item: Bran, rice
+  - item_code: '38'
+    item: Flour, rice
+- item_code: '2848'
+  item: Milk - Excluding Butter
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2941'
+  - '2948'
+  composition:
+  - item_code: '882'
+    item: Milk, whole fresh cow
+  - item_code: '888'
+    item: Milk, skimmed cow
+  - item_code: '889'
+    item: Milk, whole condensed
+  - item_code: '890'
+    item: Whey, condensed
+  - item_code: '891'
+    item: Yoghurt
+  - item_code: '892'
+    item: Yoghurt, concentrated or not
+  - item_code: '893'
+    item: Buttermilk, curdled, acidified milk
+  - item_code: '894'
+    item: Milk, whole evaporated
+  - item_code: '895'
+    item: Milk, skimmed evaporated
+  - item_code: '896'
+    item: Milk, skimmed condensed
+  - item_code: '897'
+    item: Milk, whole dried
+  - item_code: '898'
+    item: Milk, skimmed dried
+  - item_code: '899'
+    item: Milk, dry buttermilk
+  - item_code: '900'
+    item: Whey, dry
+  - item_code: '901'
+    item: Cheese, whole cow milk
+  - item_code: '903'
+    item: Whey, fresh
+  - item_code: '904'
+    item: Cheese, skimmed cow milk
+  - item_code: '905'
+    item: Whey, cheese
+  - item_code: '907'
+    item: Cheese, processed
+  - item_code: '908'
+    item: Milk, reconstituted
+  - item_code: '909'
+    item: Milk, products of natural constituents nes
+  - item_code: '910'
+    item: Ice cream and edible ice
+  - item_code: '917'
+    item: Casein
+  - item_code: '951'
+    item: Milk, whole fresh buffalo
+  - item_code: '954'
+    item: Milk, skimmed buffalo
+  - item_code: '955'
+    item: Cheese, buffalo milk
+  - item_code: '982'
+    item: Milk, whole fresh sheep
+  - item_code: '984'
+    item: Cheese, sheep milk
+  - item_code: '985'
+    item: Milk, skimmed sheep
+  - item_code: '1020'
+    item: Milk, whole fresh goat
+  - item_code: '1021'
+    item: Cheese of goat mlk
+  - item_code: '1023'
+    item: Milk, skimmed goat
+  - item_code: '1130'
+    item: Milk, whole fresh camel
+- item_code: '2899'
+  item: Miscellaneous
+  is_aggregate: false
+  parent_groups:
+  - '2901'
+  - '2903'
+  - '2928'
+  composition: []
+- item_code: '2901'
+  item: Grand Total
+  is_aggregate: true
+  parent_groups: []
+  composition: []
+- item_code: '2903'
+  item: Vegetal Products
+  is_aggregate: true
+  parent_groups: []
+  composition: []
+- item_code: '2905'
+  item: Cereals - Excluding Beer
+  is_aggregate: true
+  parent_groups: []
+  composition: []
+- item_code: '2907'
+  item: Starchy Roots
+  is_aggregate: true
+  parent_groups: []
+  composition: []
+- item_code: '2908'
+  item: Sugar Crops
+  is_aggregate: true
+  parent_groups: []
+  composition: []
+- item_code: '2909'
+  item: Sugar & Sweeteners
+  is_aggregate: true
+  parent_groups: []
+  composition: []
+- item_code: '2911'
+  item: Pulses
+  is_aggregate: true
+  parent_groups: []
+  composition: []
+- item_code: '2912'
+  item: Treenuts
+  is_aggregate: true
+  parent_groups: []
+  composition: []
+- item_code: '2913'
+  item: Oilcrops
+  is_aggregate: true
+  parent_groups: []
+  composition: []
+- item_code: '2914'
+  item: Vegetable Oils
+  is_aggregate: true
+  parent_groups: []
+  composition: []
+- item_code: '2918'
+  item: Vegetables
+  is_aggregate: true
+  parent_groups: []
+  composition: []
+- item_code: '2919'
+  item: Fruits - Excluding Wine
+  is_aggregate: true
+  parent_groups: []
+  composition: []
+- item_code: '2922'
+  item: Stimulants
+  is_aggregate: true
+  parent_groups: []
+  composition: []
+- item_code: '2923'
+  item: Spices
+  is_aggregate: true
+  parent_groups: []
+  composition: []
+- item_code: '2924'
+  item: Alcoholic Beverages
+  is_aggregate: true
+  parent_groups: []
+  composition: []
+- item_code: '2928'
+  item: Miscellaneous
+  is_aggregate: true
+  parent_groups: []
+  composition: []
+- item_code: '2941'
+  item: Animal Products
+  is_aggregate: true
+  parent_groups: []
+  composition: []
+- item_code: '2943'
+  item: Meat
+  is_aggregate: true
+  parent_groups: []
+  composition: []
+- item_code: '2945'
+  item: Offals
+  is_aggregate: true
+  parent_groups: []
+  composition: []
+- item_code: '2946'
+  item: Animal fats
+  is_aggregate: true
+  parent_groups: []
+  composition: []
+- item_code: '2948'
+  item: Milk - Excluding Butter
+  is_aggregate: true
+  parent_groups: []
+  composition: []
+- item_code: '2949'
+  item: Eggs
+  is_aggregate: true
+  parent_groups: []
+  composition: []
+- item_code: '2960'
+  item: Fish, Seafood
+  is_aggregate: true
+  parent_groups: []
+  composition: []
+- item_code: '2961'
+  item: Aquatic Products, Other
+  is_aggregate: true
+  parent_groups: []
+  composition: []

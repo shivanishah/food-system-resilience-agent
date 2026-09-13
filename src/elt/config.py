@@ -1,8 +1,9 @@
-"""Typed loading of the Phase 2 scope configuration.
+"""Typed loading of the pipeline configuration.
 
 Translates ``config/variables.yaml`` (per-domain item/element scope, derived
-from DATA.md) and ``config/harmonisation.yaml`` (Silver cleaning rules) into
-Pydantic models, so the rest of the pipeline never parses YAML directly.
+from DATA.md), ``config/harmonisation.yaml`` (Silver cleaning rules) and
+``config/gold.yaml`` (Phase 3 Gold rules and DuckDB limits) into Pydantic
+models, so the rest of the pipeline never parses YAML directly.
 """
 
 from __future__ import annotations
@@ -13,6 +14,7 @@ from typing import Literal
 import yaml
 from pydantic import BaseModel, Field
 
+from src.database.duckdb_conn import DuckDBSettings
 from src.elt.qcl_items import DEFAULT_QCL_CROP_ITEMS_PATH, load_qcl_crop_items
 
 DEFAULT_VARIABLES_PATH = Path("config/variables.yaml")
@@ -127,3 +129,49 @@ def load_harmonisation_config(path: Path = DEFAULT_HARMONISATION_PATH) -> Harmon
         non_negative_elements=doc["non_negative_elements"],
         commodity_mapping=doc["commodity_mapping"]["canonical"],
     )
+
+
+# --- Phase 3 (Gold) -------------------------------------------------------
+
+DEFAULT_GOLD_PATH = Path("config/gold.yaml")
+
+
+class ElementSpec(BaseModel):
+    """A Silver element name plus the unit it must carry (asserted at build)."""
+
+    element: str
+    unit: str | None = None
+    canonical_unit: str | None = None
+
+
+class KcalDerivationConfig(BaseModel):
+    min_food_kg_per_capita_yr: float
+    min_obs: int
+    dispersion_rel_iqr_threshold: float
+
+
+class AmbiguityConfig(BaseModel):
+    max_abs_deviation: float
+    max_combinations: int
+
+
+class ItemMappingConfig(BaseModel):
+    """STEP 1 rules for ``dim_item_mapping`` (``config/gold.yaml``)."""
+
+    elements: dict[str, ElementSpec]
+    kcal: KcalDerivationConfig
+    equivalence_tolerance: float
+    ambiguity: AmbiguityConfig
+    fbs_top_groups: list[str]
+
+
+class GoldConfig(BaseModel):
+    duckdb: DuckDBSettings
+    protected_table_prefixes: list[str]
+    item_mapping: ItemMappingConfig
+
+
+def load_gold_config(path: Path = DEFAULT_GOLD_PATH) -> GoldConfig:
+    with path.open() as f:
+        doc = yaml.safe_load(f)
+    return GoldConfig(**doc)

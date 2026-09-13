@@ -1,0 +1,59 @@
+# Phase 3 (Gold) configuration. Referenced by src/elt/config.py
+# (load_gold_config). Changing a threshold here changes Gold output, so edits
+# are an analytical decision, not a code change.
+
+# Every DuckDB session sets these (src/database/duckdb_conn.py). Hard
+# constraint: an 8 GB machine where pandas full-table loads were OS-killed
+# twice in Phase 2 -- all aggregation runs in DuckDB, spilling to disk.
+duckdb:
+  memory_limit: "3GB"
+  threads: 4
+  temp_directory: "~/duckdb_tmp"
+  preserve_insertion_order: false
+
+# Gold scripts may only drop/recreate tables whose names do NOT start with
+# these prefixes -- Bronze and Silver are never modified from Phase 3.
+protected_table_prefixes: ["bronze_", "silver_"]
+
+# STEP 1 -- dim_item_mapping (QCL crop item -> FBS commodity + kcal density).
+item_mapping:
+  # Element names/units as they appear in Silver. Units are asserted, not
+  # assumed: a mismatch aborts the build.
+  elements:
+    qcl_production: {element: "Production", unit: "t"}
+    qcl_area_harvested: {element: "Area harvested", unit: "ha"}
+    fbs_production: {element: "Production", canonical_unit: "t"}
+    fbs_kcal: {element: "Food supply (kcal/capita/day)", unit: "kcal/cap/d"}
+    fbs_food_kg: {element: "Food supply quantity (kg/capita/yr)", unit: "kg/cap"}
+
+  # kcal_per_100g = median over country-years of
+  #   (kcal/capita/day * 365) / (kg/capita/yr * 10)
+  # for one FBS item. Countries that barely eat an item consume it as an
+  # atypical product mix, so the primary basis uses only country-years with a
+  # meaningful per-capita food quantity.
+  kcal:
+    min_food_kg_per_capita_yr: 1.0
+    # Minimum country-year observations for a derived value. Below this on
+    # the primary basis, fall back to every consuming country-year; below it
+    # on that too, the value is not derivable -> needs_manual.
+    min_obs: 20
+    # (q75 - q25) / median above this -> kcal_dispersion_high = 1 (warning
+    # only; the derived value is kept).
+    dispersion_rel_iqr_threshold: 0.5
+
+  # FBS quantities are in primary-commodity equivalent, so FBS production of
+  # an item should equal the summed QCL production of the crops mapped to it.
+  # median(FBS / sum QCL) further than this from 1 -> equivalence_warning.
+  equivalence_tolerance: 0.05
+
+  # A QCL crop listed in more than one FBS composition is assigned by testing
+  # every candidate assignment against production equivalence. The winning
+  # assignment must bring EVERY affected FBS item within this distance of 1,
+  # and be the only assignment that does; otherwise -> needs_manual.
+  ambiguity:
+    max_abs_deviation: 0.02
+    max_combinations: 64
+
+  # FAO's own top-level FBS groups, by name (resolved to codes from
+  # config/fbs_item_composition.yaml). Used only to explain unmapped FBS items.
+  fbs_top_groups: ["Vegetal Products", "Animal Products"]
